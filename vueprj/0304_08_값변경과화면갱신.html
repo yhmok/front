@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>값변경과 화면 갱신</h3>
+        <p>Vue 엔진 - vue 3</p>
+        <h3>{{count}}</h3>
+        <h3>{{a}}</h3>
+        <div>
+            <button typw="button" v-on:click="increase">++</button>
+            <button typw="button" v-on:click="decrease">--</button>
+            <hr>
+            <h3>value1:{{value1}}</h3>
+            <h3>value2:{{value2}}</h3>
+            <button typw="button" v-on:click="increase1">v1++</button>
+            <button typw="button" v-on:click="increase2">v2++</button>
+            <hr>
+            <h4>{{person}}</h4>
+            <input type="text" v-model="newKey"><br>
+            <input type="text" v-model="newVal"><br>
+            <button type="button" v-on:click="addObj">속성추가</button>
+            <hr>
+            <h2>수정자 modifier</h2>
+            <textarea cols="30" rows="10" v-model="message"></textarea>
+            <pre>[{{message}}]</pre>    
+            <hr>
+            <input typw="text" v-model.lazy="message">
+            <input typw="text" v-model="message">
+            <br>
+            <input type="text" v-model.number.lazy="val">
+            <input type="number" v-model="val">
+            <div>{{val+val}}</div>
+        </div>
+    </div>
+    <script>
+    let app = {
+        data() {
+            return {
+                count: 0,
+                a: [0, 1, 2],
+                value1:0,
+                person: {id: 100, name: "홍길동", age: 20},
+                newKey:"",
+                newVal: "",
+                message:"",
+                val:0
+            }    
+        },
+        methods: {
+            addObj() {
+                this.person[this.newKey] = this.newVal;
+            },
+            increase1() {
+                this.value1++;
+            },
+            increase2() {
+                if(typeof this.value2=="undefined") this.value2=0;
+                this.value2++;
+
+                // value2 : data에 값 설정 후 만들어진 것은 뷰엔진이 감지를 못함
+                // 강제 화면 갱신
+                this.$forceUpdate(); 
+            }, 
+            increase() {
+                this.count++;
+                this.a[0]++;
+                let b = this.a.slice(0);
+                b[0]++;
+                this.a=b;
+                let i=this.a.length;
+                this.a.push(i);
+            },
+            decrease() {
+                this.count--;
+                this.a[0]--;
+                let b = this.a.slice(0);
+                b[0]--;
+                this.a=b;
+                this.a.pop();
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+</html>

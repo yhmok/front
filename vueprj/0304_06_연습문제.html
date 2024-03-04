@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 400px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        div#app div {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+        }
+
+        input[type=text] {
+            padding: 4px;
+            margin-top: 5px;
+        }
+
+        div.total {
+            font-size: 16pt;
+        }
+        .red-text { color: red }
+        .blue-text { color: blue }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2>v-bind:class, v-bind:style</h2>
+        수량: <input type="text" v-model="수량"/><br>
+        가격: <input type="text" v-model="가격"/><br>
+        <br>
+        합계1: <input type="text" v-model="total" v-bind:class="{'red-text':total>=10000}"><br>
+        합계2: <input type="text" v-model="total" v-bind:style="{color:total>=5000?'blue':'gray'}"/><br>
+        <hr>
+        <h2>이름</h2>
+        성: <input type="text" v-model="성"/><br>
+        이름 : <input type="text" v-model="이름"/><br>
+        <br>
+        전체이름 :  {{전체이름}}
+        <br><hr>
+        <h2>FROM-TO 합계</h2>
+        from: <input type="text" v-model="from"><br>
+        to: <input type="text" v-model="to"><br>
+        <br>
+        합계3: {{total2()}}
+    </div>
+    <script>
+        let app = {
+            data() {
+                return {
+                    수량: 0,
+                    가격: 0,
+                    성: "",
+                    이름: "",
+                    from: "",
+                    to: ""
+                }
+            },
+            methods: {
+                total2() {
+                    let  from = Number(this.from)
+                    let to = Number(this.to)
+                    let sum = 0;
+                    for(let i=from; i<=to; i++){
+                        sum = sum+i;
+                    }
+                    return sum
+                }
+            },
+            computed: {
+                전체이름() {
+                    return this.성 + this.이름
+                },
+                total: {
+                    get() {
+                        return this.수량*this.가격
+                    }    
+                }
+            }
+        }
+        Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+
+</html>

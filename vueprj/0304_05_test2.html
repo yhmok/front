@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        .green {background-color: lime;}
+        .yellow {background-color: yellow;}
+        .red {background-color: red;}
+        .blue {background-color: blue;}
+        .gray {background-color: gray;}
+    </style>
+</head>
+<body>
+    <div id="app">
+       <div id="box" v-bind:class="color">
+            <h1>checkbox</h1>
+            <p>{{value}}</p>
+            <hr>
+            <input type="checkbox" v-model="value">
+            <h2>select</h2>
+            <select v-model="color">
+                <option value="gray">yellow</option>
+                <option>green</option>
+                <option>blue</option>
+                <option>red</option>
+                <option>pink</option>
+            </select>
+       </div>
+       <div id="box2" v-bind:style="{backgroundColor: color, height:높이}">
+            <h2>
+                Welcome
+            </h2>
+        </div>
+        <hr>
+        <div>
+            수량 <input type="text" v-model="수량"><br>
+            가격 <input type="text" v-model="가격"><br>
+            <!-- 합계를 수정하면 수량이 변경됨 -->
+            합계 <input type="text" v-model="total5"><br>
+        </div> 
+        {{total()}}<br>
+        {{total2}}<br>
+        {{total3}}<br>
+        {{total4}}<br>
+        <!-- 총합 : {{수량*가격}}<br> -->
+    </div>
+    <script>
+    let app = {
+        data() {
+            return {
+                value: false,
+                color: "yellow",
+                높이: "100px",
+                수량: 0,
+                가격: 0
+            }  
+        },
+        methods: {
+            total() {
+                return this.수량*this.가격 + "원"
+            }
+        },
+        computed: {
+            total2() {
+                return this.수량*this.가격 + "won"
+            },
+            total3: function() {
+                return this.수량*this.가격 + "달러"
+            },
+            total4() {
+                let 총합 = this.수량 + this.가격;
+                let s = String(총합);
+                console.log(s);
+                for(let i=3; s.length>i; i+=4){
+                   s =  s.slice(0, -i) + "," + s.slice(-i);
+                }
+                return s;
+            },
+            total5: {
+                get() {
+                    return this.수량*this.가격
+                },
+                set(value) {
+                    this.수량 = value/this.가격
+                }
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+</html>

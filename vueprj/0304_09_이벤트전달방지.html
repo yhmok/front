@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <form v-on:click="hello('form')" >
+            <input type="checkbox" v-model="value" v-on:click.stop>
+            <button typw="button" v-on:click.stop="hello('button')">버튼</button>
+        </form>
+        <hr>
+        <form v-on:click.self="hello('form')" >
+            <input type="checkbox" v-model="value">
+            <button typw="button" v-on:click="hello('button')">버튼</button>
+        </form>
+        <hr>
+        <form v-on:click.capture.stop="hello('form')" >
+            <input type="checkbox" v-model="value">
+            <button typw="button" v-on:click="hello('button')">버튼</button>
+        </form>
+    </div>
+    <script>
+    let app = {
+        data() {
+            return {
+                value: false
+            }    
+        },
+        methods: {
+            hello(who) {
+                alert(who+"클릭함")
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        div#app {
+            padding: 30px;
+            margin: 30px auto;
+            width: 350px;
+            border: 1px solid #ccc;
+            box-shadow: 3px 3px 3px #aaa;
+        }
+
+        div#app>div {
+            margin-top: 30px;
+        }
+
+        label:nth-child(1) {
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+            margin-right: 5px;
+        }
+
+        label:nth-child(2) {
+            margin-right: 20px;
+        }
+
+        input[type=text] {
+            padding: 6px;
+            width: 200px;
+        }
+
+        div.error {
+            margin-top: 5px;
+            margin-left: 70px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        v-if, v-show
+         state 값에 따라 다르게 렌더링 
+    -->
+    <div id="app">
+        <div>
+            <label>이메일:</label>
+            <input type="text" v-model="email" @input="errorHide1" />
+            <div class="error" v-if="showError1">이메일은 필수항목입니다.</div>
+        </div>
+        <div>
+            <label>전화번호:</label>
+            <input type="text" v-model="phone" v-on:input="errorHide2" />
+            <div class="error" v-if="showError2">전화번호는 필수항목입니다.</div>
+        </div>
+        <div>
+            <label>성별:</label>
+            <label><input type="radio" v-model="sex" value="남" v-on:click="errorHide3" />남자</label>
+            <label><input type="radio" v-model="sex" value="여" v-on:click="errorHide3" />여자</label>
+            <div class="error" v-if="showError3">성별은 필수항목입니다.</div>
+        </div>
+    </div>
+    <script>
+        let app = {
+            data() {
+                return {
+                    email: '',
+                    phone: '',
+                    sex: '',
+                    showError1: true,
+                    showError2: true,
+                    showError3: true,                }
+            },
+            methods: {
+                // 공백이면 true이므로 에러를 보여준다.
+                errorHide1() { this.showError1 = this.email.trim()===""; },
+                errorHide2() { this.showError2 = this.phone.trim()===""; },
+                errorHide3() { this.showError3 = false }
+            }
+        }
+        Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+        span {
+            display: inline-block;
+            padding: 0 5px;
+        }
+        table {
+            border: 1px solid gray;
+            border-collapse : collapse;
+        }
+        td {
+            width: 100px;
+            text-align: center;
+            border-left: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <span v-for="(s, i) in words" v-bind:key="i" v-on:click = "remove(i)">
+            {{i}} - {{s}}
+        </span>
+        <div>
+            <input typw="text" v-model="word" id="addText" @keydown.enter="add">
+            <button type="button" v-on:click="add">추가</button>
+        </div>
+        <hr>
+        <p v-for="(person, i) in persons" v-bind:key="person.id">
+            <span>{{person.id}}</span>
+            <span>{{person.name}}</span>
+            <span>{{person.age}}</span>
+            <button type="button" v-on:click="remove2(i)">삭제</button>
+        </p>
+        <p v-for="(value, key) in person">
+            <span>{{key}}</span>-<span>{{value}}</span>
+        </p>
+        <span v-for="i in size">
+            {{i}} - 
+        </span>
+        <p v-for="r in row">
+             <span v-for="c in col">
+                {{(r-1)*col + c}} |
+            </span>
+        </p>
+        <hr>
+  
+        <h3>구구단</h3>
+        <table >
+            <tr v-for="r in 9">
+                <td v-for="c in 9-1">
+                    {{c+1}} * {{r}} = {{r*c}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+    let app = {
+        data() {
+            return {
+                row: 4,
+                col: 5,
+                size: 10,
+                words:["월요일", "화요일", "수요일", "목요일", "금요일", "토요일", "일요일"],
+                persons: [
+                            {id:100, name:"강감찬", age:70},
+                            {id:101, name:"이순신", age:50},
+                            {id:102, name:"장보고", age:30},
+                            {id:103, name:"류관순", age:20},
+                        ],
+                person: {id: 103, name: "임꺽정", age: 18}        
+            }    
+        },
+        methods: {
+            remove(i) {
+                this.words.splice(i, 1)
+            },
+            remove2(i) {
+                if(confirm("삭제할까요?"))
+                    this.persons.splice(i, 1)
+            },
+            add(i) {
+                this.words.push(this.word)
+                this.word = ""
+                addText.focus();
+            }
+        }
+    }
+    Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+</html>
