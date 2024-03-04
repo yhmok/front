@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>welcome-{{title}}</h1>
+        <p>안녕하세요-{{body}}</p>
+        <hr>
+        <input type="text" v-model="title">
+        <input type="text" v-model="body">
+        <hr>
+        <input type="text" v-model="title">
+        <input type="text" v-model="body">
+        <hr>
+        <h2>checkbox</h2>
+        <p> {{value}}
+            <input type="checkbox" v-model="value">
+            <input type="checkbox" v-model="value">
+        </p>
+        <hr>
+        <p> {{choice}}
+            <select v-model="choice">
+                <option>yellow</option>
+                <option value="그린색">green</option>
+                <option value="파랑색">blue</option>
+                <option>red</option>
+            </select>
+            <input type="text" v-model="choice">
+        </p>
+        <div>
+            <input type="radio" value="html" v-model="it">html
+            <input type="radio" value="css" v-model="it">css
+            <input type="radio" value="java" v-model="it">java
+            <input type="radio" value="vue" v-model="it">vue
+            <br>
+            {{it}}
+        </div>
+    </div>
+    <script>
+    let app = {
+        data() {
+            return {
+                title: '감사합니다.',
+                body: 'good morning',
+                value: false,
+                choice: 'yellow',
+                it:'css'
+
+            }    
+        }
+    }
+    Vue.createApp(app).mount("#app")
+    </script>
+
+</body>
+</html>
