@@ -1,0 +1,33 @@
+.App {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+/* 수정부분 */
+table { border-collapse: collapse; margin: 5px; }
+td { border: 1px solid gray; padding: 4px; }
+
+div { margin: 10px; font-size: 20pt; }
+p.blue { color: blue; }
+p.green { color: green; }
+
+ 
