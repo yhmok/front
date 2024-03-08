@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style0207.css">
+</head>
+<body>
+
+<div id="title">
+    <h1>웹표준을 위한 마크업</h1>    
+    <p>문단...</p>
+</div>
+
+<!-- 제목 내부에 문단이 올수 없다 -->
+<h2>제목
+    <p>welcome XXX</p>
+</h2>
+
+<h2>제목
+    <div>박스 XXX</div>
+</h2>
+
+<div>
+    <h3>제목 OOO</h3>
+</div>
+
+<header>헤더</header>
+<div class="header">헤더</div>
+<div id="header">헤더</div>
+
+<hgroup>
+    <h3>제목3</h3>
+    <h4>제목4</h4>
+</hgroup>
+
+<header>
+    <h1>제목1</h1>
+    <nav class="gnb">
+        <!-- ul>li*5>a[href=#]{menu-$} -->
+        <ul>
+            글자XXX
+            <li><a href="#">
+                <span> menu-1</span></a>
+            </li>
+            <li><a href="#">menu-2</a></li>
+            <li><a href="#">menu-3</a></li>
+            <li><a href="#">menu-4</a></li>
+            <li><a href="#">menu-5</a></li>
+        </ul>
+    </nav>
+</header>
+<p>
+    <div>XXX</div>
+    <address>XXX</address>
+</p>
+<address>주소</address>
+<span><div>XXX</div></span>
+<div><span>OOO</span></div>
+
+속성은 CSS로 처리한다,
+<table width="100" height="400">
+</table>
+
+<label><a href="#">라벨OOO</a></label>
+<a href="#"><label>라벨XXX</label></a>
+<label><span>라벨XXX</span></label>
+
+비표준태그들
+<font>font</font>
+<center>가운데 정렬</center>
+<big>큰글자</big>
+<small>작은글자</small>
+<u>밑줄</u>
+<s>취소선</s>
+<strike>취소선</strike>
+
+<section>
+    <h2>부제목</h2>
+    <article></article>
+    <div>
+        <p></p>
+    </div>
+</section>
+<aside>사이드메뉴</aside>
+<!-- figure : 그림이 여러개일 경우 감싸는 태그 -->
+<figure>
+    <img src="" alt="">
+    <img src="" alt="">
+</figure>
+
+<main>메인</main>
+
+</body>
+</html>
+<!-- 
+웹표준검사
+- KLDP
+- https://validator.w3.org/
+
+레이아웃을 위한 박스는 id로 줄수있다. 그 외는 class로 처리
+
+시멘틱태그(semantic tag ) : 의미를 가지는 태그
+- section, nav, article, figure, footer, aside, main
+- 문서의 구조를 표현하기위한 태그
+
+id는 오직하나
+class는 중복스타일 적용하기 위해서 여러개 선언 가능
+ -->

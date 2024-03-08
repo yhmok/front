@@ -1,0 +1,73 @@
+/* 외부스타일 */
+#slider {
+    width: 1200px;
+    margin: auto;
+    border: 1px solid black;
+    height: 400px
+}
+#slider img {
+    width: 100%;
+    height: 100%;
+}
+#contents {
+    width: 1200px;
+    margin:auto;
+    border: 1px solid black;
+    display: flex;
+}
+#contents>section {
+    border: 1px solid black;
+    height: 200px;
+    flex: 1;
+}
+footer {
+    border: 1px solid black;
+    width: 1200px;
+    margin:auto;
+    overflow: hidden;
+}
+footer>h3 {
+    float: left;
+    height: 100px;
+    width: 200px;
+    border-right: 2px dotted black;
+    font-size: 20px;
+    text-align: center;
+    line-height: 100px;
+}
+footer>div.bottom {
+    float: right;
+}
+.bottom>ol {
+    width: 996px;
+    height: 50px;
+    border-bottom: 1px solid gray;;
+    text-align: center;
+    line-height: 50px;
+}
+address {
+    font-style: normal;
+    text-align: center;
+    line-height:  50px;
+}
+
+/* 서브메뉴 숨기기 */
+ol.sub {
+    display: none;
+    position: absolute;
+    left:0;
+    width: 100%;
+    top: 42px;
+}
+
+/* 메인메뉴에 마우스 올리면 서브메뉴가 보여라 */
+ul.gnb>li:hover>ol.sub {
+    display: block;
+    background-color: lightgray;
+}
+ul.gnb>li {
+    position: relative;
+}
+ol.sub>li:hover {
+    background-color: pink;
+}

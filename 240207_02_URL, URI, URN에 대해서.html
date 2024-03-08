@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style0207.css">
+    <style>
+        /* css코드 */
+        /* 꼭 여기에 넣어줌 */
+    </style>
+    <script>
+        // javascript
+        //위치 상관없음
+    </script>
+</head>
+<body>
+<h1>URL, URI, URN에 대해서</h1>
+<h2>구글로 검색하기</h2>
+<!-- 검색사이트에서 파라미터를 name에 주면됨 -->
+<form action="https://www.google.com/search" method="get">
+    <input type="text" name="q">
+    <input type="text" name="q2">
+    <input type="submit" value="구글검색">
+</form>
+<h2>네이버로 검색하기</h2>
+<form action="https://search.naver.com/search.naver" method="get">
+    <input type="text" name="query">
+    <input type="submit" value="네이버검색">
+</form>
+<h2>다음으로 검색하기</h2>
+<form action="https://search.daum.net/search" method="get">
+    <input type="text" name="q">
+    <input type="submit" value="다음검색">
+</form>
+<h2>네이트로 검색하기</h2>
+<form action="https://search.daum.net/nate" method="get">
+    <input type="text" name="q">
+    <input type="submit" value="네이트검색">
+</form>
+
+</body>
+</html>
+<!-- 
+URL, URI, URN에 대해서
+
+URL
+http://www.daum,net
+www -> 컴퓨터이름
+daum.net -> 도메인 
+개발자 : URI를 만듬
+
+queryString
+search?q=잡코리아&
+http://url?parameter=value -> URL
+-->

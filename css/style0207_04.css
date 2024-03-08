@@ -1,0 +1,24 @@
+/* css초기화 */
+* {margin:0; padding:0}
+li {list-style: none;;}
+a {text-decoration: none; color:black;}
+
+/* 달력 */
+.inner {
+    width: 840px;
+    margin: auto;
+}
+h1 {
+    text-align: center;
+}
+.inner table { border-collapse: collapse;  margin-top: 20px;}
+.inner td { border: 1px solid gray; width: 120px; height: 120px; vertical-align: top;}
+.inner th { background-color: #dddddd; border: 1px solid gray; height: 30px; }
+.inner td:nth-child(1), th:nth-child(1) {color: red;}
+.inner span.green { font-size: 9pt; color: green; }
+.inner span.gray { font-size: 9pt; color: gray; }
+.inner td:hover { background-color: #ffd; cursor: pointer; }
+
+/* 행렬합치기 */
+table { border-collapse: collapse; }
+td { border: 1px solid gray; width: 50px; height: 50px; text-align: center; }

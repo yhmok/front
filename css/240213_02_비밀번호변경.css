@@ -1,0 +1,67 @@
+table {
+    text-align: center;
+    margin: auto;
+    display:block;
+    width: 500px;
+    border-radius:  10px;
+    border: 1px solid lightgray;
+    box-shadow: 3px 3px 3px 3px lightgray;
+    margin-top: 100px;
+}
+table>tbody {
+    display: block;
+    width: 300px;
+    margin: auto;
+}
+table>tbody>tr>th {
+    height: 25px;
+    text-align: right;
+}
+table>tbody>tr:nth-child(1)>th {
+    padding-top: 20px;
+    height: 45px;
+    font-size: 20px;
+    text-align: center;
+}
+table>tbody>tr>td {
+    padding-left: 10px;
+}
+input {
+    height: 20px;
+    margin-top: 5px;
+}
+input[type=submit] {
+    margin: 20px 0;
+    height: 35px;
+    font-size: 11pt; 
+    padding: 0.5em 1.5em; 
+    border: 1px solid gray;          
+    border-radius: 0.5em; 
+    background: linear-gradient(#fff, #ddd);
+    color: black;
+}    
+input[type=submit]:active {
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    background: linear-gradient(#eff, #dee); 
+    border: 1px solid #dee;
+    color: blue;
+}
+input[type=reset] {
+    height: 35px;
+    font-size: 11pt; 
+    padding: 0.5em 1.5em;
+    border: 1px solid gray;      
+    border-radius: 0.5em;    
+    background: linear-gradient(#fff, #ddd);
+    color: black;
+}    
+input[type=reset]:active {
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    background: linear-gradient(#fee, #edd); 
+    border: 1px solid #fdd;
+    color: red;
+}

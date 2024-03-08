@@ -1,0 +1,83 @@
+div#inner {
+    width: 800px;
+    margin:auto;
+    border:5px solid rgb(105, 23, 229);
+    padding: 30px;
+}
+h2 {
+    text-align: center;
+    margin: 20px 0;
+}
+table {
+    margin-top: 5px;
+}
+button {
+    border: 0;
+    outline: 0;
+    background-color: transparent;
+}
+.dup>b {
+    color: red;
+    cursor: pointer;
+    font-size:16px;
+}
+.zp>b {
+    color: blue;
+    cursor: pointer;
+    font-size:16px;
+}
+tbody>tr>td:first-child {
+    border: 1px solid black;
+    background: lightgray;
+}
+tr {
+    height: 25px;
+}
+input {
+   height: 23px;
+}
+tbody>tr>td:first-child {
+    text-align: right;
+    width: 120px;
+    padding: 6px;
+}
+tbody>tr>td:last-child {
+    display: block;
+    margin-left: 5px;
+}
+div.s_button {
+    width: 215px;
+    margin:auto;
+}
+input[type=submit] {
+    height: 35px;
+    margin: 20px 0;
+    font-size: 11pt; 
+    padding: 0.5em 1.5em; border: 1px solid gray;          
+    border-radius: 0.5em; 
+    background: linear-gradient(#fff, #ddd);
+    text-decoration: none; color: black;
+}    
+input[type=submit]:active {
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    background: linear-gradient(#eff, #dee); border: 1px solid #dee;
+    color: blue;
+}
+input[type=reset] {
+    height: 35px;
+    font-size: 11pt; 
+    padding: 0.5em 1.5em; border: 1px solid gray;      
+    border-radius: 0.5em;    
+    background: linear-gradient(#fff, #ddd);
+    text-decoration: none; color: black;
+}    
+input[type=reset]:active {
+    -ms-transform: translateY(2px);
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+    background: linear-gradient(#fee, #edd); 
+    border: 1px solid #fdd;
+    color: red;
+}

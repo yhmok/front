@@ -1,0 +1,88 @@
+#gnb1 {
+    border:1px solid black;
+    display: flex;
+}
+#gnb1>li {
+    border: 1px solid black;
+    margin: 5px;
+    display: block;
+    /* display: inline-block; */
+    padding: 5px;
+    /* display: inline; */
+    /* display: none; */
+    font-size: 20px;
+    line-height:  2.5;;
+}
+h1 { font-size: 20px;;}
+#gnb2 {
+    background-color: lightgray;
+    padding: 5px;
+    /* overflow: hidden; */
+    /* height: 50px; */
+    /* float: left; */
+}
+#gnb2>li {
+    background-color: yellow;
+    margin: 5px;
+    float: left;
+}
+/* ul태그 다음에 나오는 h1태그는 강제 줄바꿈 처리한다. */
+#gnb2+h1 {
+    /* clear: both; */
+}
+#gnb2::after {
+    content: '';
+    display: block;
+    clear: both;
+    height: 2px;
+    background-color:  blue;
+}
+#gnb2::before {
+    content: '';
+    display: block;
+    clear: both;
+    height: 2px;
+    background-color:  red;
+}
+#gnb2>li:after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: pink;;
+    width: 0;
+}
+#gnb2>li:hover:after {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: red;;
+    width: 100%;
+
+    /* 시간설정 0.5초 */
+    transition: 500ms;
+}
+#gnb2>li:before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: pink;;
+    width: 0;
+}
+#gnb2>li:hover:before {
+    content: '';
+    display: block;
+    height: 2px;
+    background-color: green;;
+    width: 100%;
+    
+    /* 시간설정 0.5초 */
+    transition: 500ms 0.5s;
+}
+#gnb2>li {
+    width: 100px;
+    text-align: center;
+}
+#gnb2>li>a {
+    background-color: pink;
+    display:block;
+}

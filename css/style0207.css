@@ -1,0 +1,107 @@
+/* css초기화 */
+* {margin:0; padding:0}
+li {list-style: none;;}
+a {text-decoration: none; color:black;}
+
+/* 글자관련 속성 
+font-style
+font-variant
+font-weight
+font-size
+line-height
+font-fanily
+font
+*/
+/* 태그선택자, 클래스선택자, 아이디선택자 */
+/* 콤마, 다중선택자 */
+table, td {
+    border: 1px solid black;
+}
+td {
+    /* border: 1px solid black; */
+    padding: 10px;
+    text-align: center;
+}
+/* 단위 : px, % */
+table {
+    width: 300px;
+    width: 50%;
+    margin:  30px auto; /*위라애, 좌우(auto:가운데정렬)*/
+    _border-collapse: separate;
+    border-collapse: collapse;
+    /* 테두리 단일실선 표시 */
+}
+h2 {
+    font-style: normal;
+    font-style: italic;
+    font-variant: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 1;
+    font-family: sans-serif, "궁서체";
+}
+h2:hover {
+    font-style: normal;
+    font-variant: small-caps;
+    /* 소문자가 작은 대문자로 */
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.5;
+    font-family: serif, 'Times New Roman';
+    font : normal small-caps bold 20px/1.5 serif;
+    font : normal 20px/1.5 serif;
+    /* 폰트관련 속성을 한줄로 작성 */
+}
+/* 
+font-size
+픽셀단위의 디자인원칙
+8의 배수 기본. 중간에 다른 픽셀을 넣고싶으면 1.25곱함 
+16px
+20px
+24px
+32px 
+
+line-height는 글자크기를 기준으롷 줄간격을 결정한다.
+1배
+1.5배
+100%
+1em
+1.5em
+
+font-family
+공백이 있는 영문이나 한글은 때옴표(" ", ' ')로 묶어준다.
+요즘 유행 폰트 : NotoSans
+
+text-align:left/right/center/justify
+text-decoration:none/underline/overline/line-through 취소선
+*/
+a {
+    text-decoration: overline;
+}
+a:hover {
+    text-decoration: underline;
+}
+/* a태그에 마우스 누르고 있을때 */
+a:active {
+    text-decoration: line-through;
+}
+/*
+css적용 우선순위
+ p -> 1
+.text -> 10
+#text -> 100
+p#text(복합선택자 ) -> 101
+!important -> 10000
+*/
+p {background: pink !important;}
+.text {background: gold;}
+#text {background: gray;}
+p.text {background: orange;}
+p#text {background: purple;}
+p.text#text {
+    background: blue;
+    padding: 10px;
+}
+p.text:hover {
+    text-align: justify;
+}

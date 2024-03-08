@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Document</title>
+    <style>
+        /*css초기화*/
+        * {  margin:0; padding:0;  }
+        /* 목록기호 없애기 */
+        ul, ol, li { list-style: none; }
+        /* 밑줄없음*/
+        a {
+            color:black;
+            text-decoration:  none;
+        }
+        a:hover {
+            background: pink;
+            /*배경색 : 핑크색*/
+        }
+        h1:hover {
+            background-color:  orange  !important;
+        }
+        li:hover {
+            background:  gray;
+        }
+
+        /* 메뉴배치하기 */
+        header>div.inner>h1 {
+            float: left;
+        }
+        ul.gnb {
+            float: right;
+            margin: 30px 40px;
+        }
+        ul.gnb>li {
+            float: left;
+            padding: 10px 20px;
+            border:1px solid gray;
+        }
+        /* 선이 겹치는 부분 제거 */
+        ul>li:first-child {
+            border-right : 0;
+        }
+        ul>li:nth-child(2){
+            border-right : 0;
+        }
+        ul>li:last-child{
+            border-left : 0;
+        }
+        header {
+            width: 1200px; margin:auto;;
+            height: 100px;
+        }
+        h1 {
+            height: 98px;
+            border-right: 2px dotted gray;
+            width: 200px;
+            text-align: center;
+            color: black !important;
+            line-height: 98px;
+        }
+    </style>
+    <script>
+        //alert("안녕하세요");
+    </script>
+</head>
+<body>
+<header style="border:1px solid red">
+    <div class="inner" id="inner" style="border:1px solid;">
+        <h1 title="제목입니다." style="color:blue; background: gold;">로고(제목)</h1>
+        <ul class="gnb">
+            <li><a href="#">Menu-1</a>
+                <ol class="sub">
+                    <li><a href="#">Submemu-1</a></li>
+                    <li><a href="#">Submemu-2</a></li>
+                    <li><a href="#">Submemu-3</a></li>
+                    <li><a href="#">Submemu-4</a></li>
+                </ol>
+            </li>
+            <li><a href="http://www.naver.com">Menu-2</a>
+                <ol class="sub">
+                    <li><a href="#">Submemu-1</a></li>
+                    <li><a href="#">Submemu-2</a></li>
+                    <li><a href="#">Submemu-3</a></li>
+                    <li><a href="#">Submemu-4</a></li>
+                </ol>
+            </li>
+            <li><a href="http://www.google.com">Menu-3</a>
+                <ol class="sub">
+                    <li><a href="#">Submemu-1</a></li>
+                    <li><a href="#">Submemu-2</a></li>
+                    <li><a href="#">Submemu-3</a></li>
+                    <li><a href="#">Submemu-4</a></li>
+                </ol>
+            </li>
+            <li><a href="http://www.daum.ne">Menu-4</a>
+                <ol class="sub">
+                    <li><a href="#">Submemu-1</a></li>
+                    <li><a href="#">Submemu-2</a></li>
+                    <li><a href="#">Submemu-3</a></li>
+                    <li><a href="#">Submemu-4</a></li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+</header>
+
+<div id="slider">
+    <img src="./imgs/bg.jpg" alt="그림설명">
+</div>
+
+<div id="contents">
+    <section>
+        <h2>공지사항/갤러리</h2>
+        <article>내용...</article>
+    </section>
+    <section>
+        <h2>베너</h2>
+        <article>내용...</article>
+    </section>
+    <section>
+        <h2>바로가기</h2>
+        <article>내용...</article>
+    </section>
+</div>
+
+<footer>
+    <h3>로고</h3>
+    <div class=bottom >
+        <ol>
+            <li>하단메뉴</li>
+        </ol>
+        <address>
+            &copy; Copyright All Right Reserved
+        </address>
+    </div>
+</footer>
+</body>
+</html>

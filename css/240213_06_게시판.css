@@ -1,0 +1,21 @@
+div.container { margin-left: auto; margin-right: auto; width: 900px; }
+h2 {
+    text-align: center;
+    padding: 10px;
+}
+table {
+    width: 100%;
+}
+table, tr, th, td {
+   border: 1px solid black;
+   height: 30px;
+}
+th {
+    background-color: lightcyan;
+}
+th:nth-child(1) {width: 5%;}
+th:nth-child(2) {width: 65%;}
+th:nth-child(3) {width: 13%;}
+th:nth-child(4) {width: 10%;}
+th:nth-child(5) {width: 7%;}
+td {text-align: center;}

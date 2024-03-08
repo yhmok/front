@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>글자관련태그</h1>
+    <h1>첫번째 제목태그</h1>
+    <h2>두번쨰 제목태그</h2>
+    <h3>세번쨰 제목태그</h3>
+    <h4>네번쨰 제목태그</h4>
+    <h5>네번쨰 제목태그</h5>
+    <h6>네번쨰 제목태그</h6>
+    <p>문단 paragraph - 16px</p>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum pariatur eius optio ab quis ducimus vitae perferendis eaque! Ipsam officiis consequatur commodi necessitatibus nihil? Optio mollitia odio assumenda quibusdam perspiciatis?
+        Lorem -> enter or tab -> alt+z(줄바꿈)
+    </p>
+    <div>
+        <p>대한민국  <b>KOREA</b></p>
+        <p>대한민국 <i>KOREA</i></p>
+        <p>대한민국 <strong>KOREA</strong></p>
+        <p>대한민국 <em>KOREA</em></p>
+
+        <!-- 태그는 구조와 정보를 알려준다
+        string과 em은 의미를 강조 -> 스크린리더가 강조
+         -->
+        <p>welcome to my <span style="background:gold;">world</span></p>
+        <p>
+            <ruby>
+                <span>大韓民國</span>
+                <rt>대한민국</rt>
+            </ruby>
+        </p>
+    </div>
+    <p>오늘은 <ins>화요일</ins>입니다.</p>
+    <p>오늘은 <del>화요일</del>입니다.</p>
+    <p>물은 H<sub>2</sub>O이고, 1평은 3.3m<sup>2</sup>이다.</p>
+    <q>인용부호</q>
+    <blockquate>이부분은 인용한 문단</blockquate>
+    <address>&copy; Coptright All Right Reserved</address>
+    <p>글자를 입력하다가 &nbsp; &nbsp;&nbsp;&nbsp;   공백도 넣고<br>
+        줄바꿈을 하고싶다
+    </p>
+    <pre>입력하는대로             그대로   
+        출력이 되는 태그
+    </pre>
+    <mark>형광문자</mark>
+    <marquee>움직이는 글자</marquee>
+
+    <!-- font태그는 정보가 아니라 디자인용이다 -->
+    <font swize="6" face="궁서" color="red">글자태그(비표준)</font>
+    <center>가운데정렬(비표준)...디자인은 무조건 CSS로 코딩</center>
+    <p>글자가 가다가 <big>커지고(비표준)</big><small>작아진다.(표준)</small></p>
+    <hr>
+    <h2>목록태그</h2>
+    <p>순서있는 목록태그, 순서없는 목록태그, 용어정의 목록태그가 있느며 UI/UX에서 네비게이션에 주로 사용된다.</p>
+    <p>
+        링크태그(anchor)
+        <a href="http://www.naver.com">기본은 자신창</a>
+        <a href="http://www.naver.com" target="_blank">무조건새창_blank</a> 
+        <a href="http://www.naver.com" target="_self">자신창_self</a>
+        <a href="http://www.naver.com" target="new">한번만새창_new</a>
+        
+    </p>
+    <ol>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+    </ol>
+    <ul>
+        <li><a href="#">목록1</a></li>
+        <li><a href="#">목록2</a></li>
+        <li><a href="#">목록3</a></li>
+    </ul>
+
+    <!-- ul과 ol사이에 li태그 이외에 어떤것도 올수 없다 -->
+    <ul>
+        <div>
+            <li>문법오류 X</li>
+        </div>
+    </ul>
+    <ul>
+        성적표 X 오류
+        <li>국어</li>
+    </ul>
+    <ol>
+        <li>
+            <div>정상 O</div>
+            <p>p</p>
+        </li>
+    </ol>
+    <button>버튼</button>
+    <a href="#"><span>링크 O</span></a>
+    <a href="#"><button>링크 X</button></a>
+
+    <p>용어 정의형 목록태그</p>
+    <dl>
+        <dt>html이란</dt>
+        <dd>마크업 언어</dd>
+    </dl>
+
+    <!-- emmet기능
+         ul>li*5>a[href=#]{menu-$}
+         h$*6{welcome$}
+         div#box{welcome}
+         div.box$*3{welcome}
+         h1+p
+         header+section+footer
+    -->
+    <ul>
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+    </ul>
+
+    <h1>welcome1</h1>
+    <h2>welcome2</h2>
+    <h3>welcome3</h3>
+    <h4>welcome4</h4>
+    <h5>welcome5</h5>
+    <h6>welcome6</h6>
+
+    <div id="box"></div>
+    <div class="box1">welcome</div>
+    <div class="box2">welcome</div>
+    <div class="box3">welcome</div>
+    <h1></h1>
+    <p></p>
+
+    <header></header>
+    <section></section>
+    <footer></footer>
+
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eius ea iste modi recusandae numquam pariatur voluptas vel fuga eum tempore repellat magnam facilis sapiente sunt molestias accusamus, voluptatem consequatur in!</p>
+
+    <!-- 시작태그 종료태그
+    <h1 id="title"></h1> ==>요소(element)
+    단독으로 사용하는 태그
+    <br>, <br/>
+    <hr>
+    <img> -->
+    <hr>
+    <img src="./imgs/dog1.jpg" alt="이미지설명">
+    <img src="./imgs/dog1.jpg" alt="" width="120" height="76">
+    <img src="./imgs/dog1.jpg" alt="" title="풍선도움말">
+
+    <!-- 모든 태그에 다 넣을수 잇는 속성 : id, class, title, style 
+        웹 접근성을 위해서 img태그의 alt속성을 필수
+    -->
+
+    <h2>테이블 태그</h2>
+    <table border="1">
+        <tr>
+            <th>제목</th>
+            <th>제목</th>
+            <th>제목</th>
+        </tr>
+        <tr>
+            <td>내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        <tr>
+            <td>내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+        <tr>
+            <td>내용1</td>
+            <td>내용2</td>
+            <td>내용3</td>
+        </tr>
+    </table>
+<!-- table>tr*3>td*3{data-$} -->
+<table border="1">
+    <caption>표의 제목</caption>
+    <colgroup>
+        <col style="width:100px;">
+        <col style="width:150px;">
+        <col style="width:auto;">
+    </colgroup>
+    <thead>
+        <tr>
+            <th colspan="3">학생성적표</th>
+        </tr>
+        <th>제목</th>
+        <th>제목</th>
+        <th>제목</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td rowspan="2">data-1</td>
+            <td>data-2</td>
+            <td rowspan="2">data-3</td>
+        </tr>
+        <tr>
+            <!-- <td>data-1</td> -->
+            <td>data-2</td>
+            <!-- <td>data-3</td> -->
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>data-1</td>
+            <td>data-2</td>
+            <td>data-3</td>
+        </tr>
+    </tfoot> 
+</table>
+<table border="1">
+    <tr>
+        <th rowspan="2">구분</th>
+        <th colspan="3">상품종류</th>
+    </tr>
+    <tr> 
+        
+        <th>스마트폰</th>
+        <th>태블리PC</th>
+        <th>eptmxmxkq</th>
+    </tr>
+    <tr>
+        <td>1월</td>
+        <td>5만대</td>
+        <td>3만대</td>
+        <td>1만대</td>
+    </tr>
+    <tr>
+        <td>2월</td>
+        <td>7만대</td>
+        <td>2만대</td>
+        <td>1만대</td>
+    </tr>
+
+    <!-- 웹표준과 웹접근성을 위한 테이블 작성 -->
+    <table border="1">
+        <caption>표의 제목</caption>
+        <colgroup>
+            <col style="width:100px;">
+            <col style="width:auto;">
+            <col style="width:auto;">
+            <col style="width:auto;">
+        </colgroup>
+        <tr>
+            <th rowspan="2" scope="col">구분</th>
+            <th colspan="3" scope="colgroup">상품종류</th>
+        </tr>
+        <tr> 
+            <th scope="col">스마트폰</th>
+            <th scope="col">태블리PC</th>
+            <th scope="col">eptmxmxkq</th>
+        </tr>
+        <tr>
+            <td scope="row">1월</td>
+            <td>5만대</td>
+            <td>3만대</td>
+            <td>1만대</td>
+        </tr>
+        <tr>
+            <td scope="row">2월</td>
+            <td>7만대</td>
+            <td>2만대</td>
+            <td>1만대</td>
+        </tr>
+</table>
+</body>
+</html>

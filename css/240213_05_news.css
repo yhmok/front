@@ -1,0 +1,15 @@
+h1, h3 {
+    padding: 20px;
+}
+div.container { margin-left: auto; margin-right: auto; width: 900px; }
+div { padding: 5px; line-height: 180%; }
+div.submenu { display: inline-block; width: 15%; vertical-align: top;  }        
+div.article { display: inline-block; width: 80%; border-left: 1px solid #ddd; }
+img { float: left; margin-right: 10px; margin-bottom: 2px; }
+div.menu { background: linear-gradient(#eee, #ccc);
+           font-weight: bold; padding: 12px; border-radius: 8px; }
+div.menu span { margin-right: 50px; }
+div.footer { border-top: 1px solid #ddd; padding: 30px 10px; }
+div.footer img { margin-right: 20px; color: black; }
+div.footer div:nth-child(2) { font: normal 9pt 굴림; color: #666; margin-top: 10px; }
+div.footer div:nth-child(3) { font: normal 9pt arial; color: #aaa; margin-top: 10px; } 

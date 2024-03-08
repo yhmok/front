@@ -1,0 +1,11 @@
+/* css초기화 */
+* { margin: 0;  padding: 0; }
+
+/* 목록기호 없애기 */
+ul, ol, li { list-style: none;}
+
+/* 테이블 단일실선 */
+table {border-collapse: collapse;}
+
+/* a태그 밑줄 없애고 글자색 검정색 */
+a {text-decoration: none; color: black;}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>멀티미디어(동영상) 관련태그</h1>
+    <p>embed, object, iframe</p>
+    <p>audio, video</p>
+    <p>mp4, webm(구글), ogv</p>
+    <p>wav, mp3, ogg</p>
+
+    <!-- 전통적인 방법 -->
+    <embed src="./media/dog.mp4"></embed>
+    <object data="./media/bee.mp4"></object>
+    <iframe src="./media/dog.mp4"></iframe>
+    <hr>
+
+    <!-- 옵션 : controls(재생기), muted(음소거), autoplay(자동재생), loop(반복), 
+        src, preload(재생전 미리불러보기), width, height, poster(대문사진(썸네일)) -->
+    <audio src="./media/better-day-186374.mp3" controls autoplay muted></audio>
+
+    <!-- 크로스브라우징 : 익스플로어, 파이어폭스, 사파리, 오페라..지원되는 타입을 재생한다.-->
+    <audio controls autoplay muted>
+        <source src="./media/better-day-186374.mp3" type="audio/mp3">
+        <source src="./media/better-day-186374.ogg" type="audio/ogg">
+        <source src="./media/better-day-186374.wav" type="audio/wav">
+    </audio>
+    <hr>
+    <video src="./media/dog.mp4" controls width="300" _height="300" autoplay loop></video>
+    <video width="300" controls autoplay loop poster="./imgs/dog1.jpg">
+        <source src="./media/bee.mp4" type="video/mp4">
+        <source src="./media/bee.webm" type="video/webm">
+        <source src="./media/bee.ogv" type="video/ogv">
+    </video>
+    <p>
+        type속성을 넣어줘야 브라우저가 빨리 파일을 인식할 수 있다.<br>
+        동영상 재생시에 음소거를 해줘야한다. 구글정책이다.
+    </p>
+    <p>유튜브에서 소스 복사해서 가져오기</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lNpN_FH8_Ac?si=sEvRFaGdmvS3SkR-"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+</body>
+
+</html>

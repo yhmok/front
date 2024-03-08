@@ -1,0 +1,106 @@
+#wrap, #wrap1 {
+    width: 960px;
+    background-color:  yellow;
+    margin: auto;
+}
+#wrap>div {
+}
+#wrap #header {
+    height: 100px;
+    position: relative;
+    border: 2px solid black;
+    border-radius:  10px;
+    background: pink;
+}
+#wrap .gnb {
+    width: 600px;
+    height: 80px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius:  10px;
+    position: absolute;
+    right:10px;  _top:5px;
+    line-height: 80px;
+    background: cyan;
+}
+#wrap #header>h1 {
+    width: 200px;
+    border: 2px solid black;
+    border-radius:  10px;
+    position: absolute;
+    left: 10px; top:10px;
+}
+#wrap .contents {
+    overflow: hidden;
+    margin-top: 10px;
+}
+#wrap .left {
+    float: left; height: 200px;
+    border: 2px solid black;
+    border-radius:  10px;
+    width: calc(960px*0.6);
+    background: lime;
+}
+#wrap .aside {
+    float: right; height: 200px;
+    width: calc(960px*0.38);
+    border: 2px solid black;
+    border-radius:  10px;
+    background: tomato;
+}
+#wrap .footer {
+    border: 2px solid black;
+    border-radius:  10px;
+    height: 100px;
+    margin-top: 10px;
+    background: steelblue;
+}
+#wrap1 div {
+    text-align: center;
+    font-size: 24px;
+}
+#wrap1 .header {
+    height: 100px;
+    position: relative;
+    border: 2px solid black;
+    border-radius:  10px;
+    background: pink;
+    line-height: 100px;
+}
+
+#wrap1 .contents {
+    overflow: hidden;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height:  300px;
+}
+#wrap1>.contents>.leftside {
+    height: 300px;
+    border: 2px solid black;
+    border-radius:  10px;
+    width: calc(960px*0.2);
+    background: cyan;
+} 
+#wrap1>.contents>.middle {
+    height: 300px;
+    border: 2px solid black;
+    border-radius:  10px;
+    width: calc(960px*0.5);
+    background: lime;   
+} 
+#wrap1>.contents>.rightside {
+    height: 300px;
+    border: 2px solid black;
+    border-radius:  10px;
+    width: calc(960px*0.2);
+    background: tomato;
+} 
+#wrap1> .footer {
+    border: 2px solid black;
+    border-radius:  10px;
+    height: 100px;
+    margin-top: 10px;
+    background: steelblue;
+    line-height: 100px;
+}

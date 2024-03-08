@@ -1,0 +1,26 @@
+h1 { font-size: 1em;}
+#gnb1 {
+    border: 1px solid;
+    width: 600px;
+    margin: auto; /*박스 가운데 정렬*/
+    height: 300px;
+    display: flex;;
+    justify-content: space-between;
+    align-items: center;;
+}
+#gnb1 li {
+    border: 1px solid;
+    height: 50%;
+    flex: 1;
+    /* 좌우 마진이 두배로 설정되는 것을 맞추기 위함 */
+    margin-right: 5px;
+    text-align: center;
+    line-height:  150px;
+}
+/* 좌우 마진이 두배로 설정되는 것을 맞추기 위함 */
+#gnb1 li:nth-child(1) {
+    margin-left: 5px;
+}
+#gnb1 li:nth-child(3) {
+    flex: 2;
+}
