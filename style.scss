@@ -1,0 +1,354 @@
+// vs-code에 Sass Live Compiler설치
+// 맨아래 <watch sass>클릭
+// - 컴파일이 되고 style.css가 만들어짐
+// 변수선언
+$bg-color: #00f;
+$margin: 5px;
+$body-color: #000;
+$font-size: 16px;
+$font-family: sans-serif;
+
+body {
+    color: $bg-color;
+}
+div {
+    margin: $margin;
+    color: $body-color;
+}
+
+// 네스팅
+body {
+    font: {
+        size: $font-size;
+        family: $font-family;
+    }
+}
+ul {
+    font-size: 20px;
+    background-color: silver;
+    a {
+        color: red;
+    }
+    a:hover {
+        color: blue;
+    }
+}
+$top: 100px;
+ol {
+    color: blue;
+    & {
+        border: 2px solid lime;
+    }
+    &>li { // & -> 자기자신(ol)
+        margin: $top;
+    }
+}
+#box1 {
+    & {
+        margin: 100px;
+    }
+    &-title {
+        padding: 10px;
+    }
+}
+.box1 {
+    .box2 {
+        .box3 {
+            font-weight: bold;
+        }
+    }
+}
+#box1 {
+    @media screen and (max-width: 700px) {
+        font-size: 30px;
+    }
+}
+@media screen and (min-width: 700px) {
+    #box2 {
+        width: 90%;
+    }
+}
+div.box3 {
+    &:hover {
+        @media screen and (min-width: 700px) {
+            background-color : red !important;
+        }
+    }
+}
+// mixin -> 함수
+// include
+@mixin test {
+    width: 100px;
+    height: 199px;
+    border: 1px solid black;
+}
+div {
+    @include test()
+}
+$color: blue;
+@mixin border($color) {
+    border: 1px solid $color;
+}
+p {
+    @include border (red)
+}
+@mixin button($color) {
+    background-color: $color;
+    border: 1pc solid darken($color, 10%);
+    color: white;
+}
+.btn-primary {
+    @include button(blue)
+}
+
+// #{} 보간 문법
+@mixin pBox($w, $h, $b) {
+    width: if(unitless($w), #{$w}px, $w);
+    height: if(unitless($h), #{$h}px, $h);
+    border-radius: if(uniuless($b), #{$b}px, $b);
+}
+.box1 {
+    @include pBox(120, 150, 10)
+}
+.box2 {
+    @include pBox(120px, 150px, 10px)
+}
+
+// @extend
+// 공통 스타일을 지정할떄
+// 스타일의 확장
+%name {
+    font-size: 14px;
+    font-style: italic;
+}
+.a {
+    color: red;
+    @extend %name
+}
+.b {
+    color: blue;
+    @extend %name;
+}
+.c {
+    @extend %name,
+    .fs30, .fw
+}
+// %placeholder 스타일 블럭
+.fs30 {
+    font-size: 30px;
+}
+.fw {
+    font-weight: bold;
+}
+%m0auto {
+    width: 120px;
+    margin:0 auto;
+}
+.footer {
+    height: 150px;
+    div {
+        @extend %m0auto;
+    }
+}
+
+// @each
+// 반복처리
+@each $var in book, phone, zoom {
+    .ico_#{$var}{
+        background: url(img/#{$var}.png) no-repeat;
+    }
+}
+// 배열
+$heading:(h1: 30px, h2:200px, h3:15px);
+@each $ele, $fs in $heading {
+    #{$ele} {
+        font-size: $fs;
+    }
+}
+@each $a, $b in $heading {
+    .#{$a} {
+        font-size: $b;
+    }
+}
+@each $a, $b in $heading {
+    ##{$a} {
+        font-size: $b;
+    }
+}
+
+//반복문
+@for $i from 1 through 6 {
+    div:nth-child(#{$i}) {
+        top: 10px * $i;
+    }
+}
+
+//조건문 @if @else
+@mixin btn_radius($h, $radius:true) {
+    @if $radius {
+        border-radius: $h/2;
+    } @else {
+        border: 1px solid red;
+    }
+}
+.btn {
+    @include btn_radius(200px, true);
+}
+.btn {
+    @include btn_radius(20px, false); //false일 경우 테두리만 줌
+}
+
+@mixin position($x, $y, $z) {
+    position: absolute;
+    left: $x; top: $y; z-index: $z;   
+    @if $x==50% and $y==50% {
+        transform:translate(-50%, -50%);
+    }@else if $x==50% {
+        transform:translateX(-50%);
+    }@else if $y==50% {
+        transform:translateY(-50%);
+    }
+}
+// 부모박스에서 자식박스로 중앙정렬하는 배치공식
+.box {
+    width: 300px;
+    height: 300px;
+    @include position(50%, 50%, 2)
+}
+.box {
+    width: 300px;
+    height: 300px;
+    @include position(50%, 0%, 2)
+}
+
+// 한줄 말줄임표 만들기
+@mixin ellipse {
+    overflow: hidden;
+    display : block;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+.text {
+    @include ellipse;
+}
+//여러줄 말줄임표 aksemfrl
+@mixin ellipse2($line, $w, $h) {
+    overflow: hidden;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    width: $w;
+    height: $h;
+    -webkit-line-clamp: $line;
+    -webkit-box-orient: vertical;
+}
+
+.text2 {
+    @include ellipse2(3, 100px, 50px);
+}
+
+// 문자열 보간
+$bx:box;
+
+div.#{$bx}{
+    margin: 10px;
+}
+
+@mixin bx($position, $wid, $color) {
+    border-#{$position}:$wid solid $color;
+}
+div.box {
+    @include bx(right, 3px, blue)
+}
+p {
+    @include bx(left, 3px, red)
+}
+
+// 중첩 - 네스팅
+.section {
+    .list{ padding: 10px; }
+}
+
+// & 상위 선택자
+.btn {
+    &.active { color: red}
+}
+// @at-root 중첩 벗어나기
+.list {
+    @at-root .box {
+        padding: 10px;
+    }
+}
+// 네스팅
+.box {
+    font: {
+        weight: bold;
+        size: 10px;
+        family: serif;
+    }
+}
+// 변수
+$color-primary: #ffff00;
+// !global 전역변수 설정
+// .box1 {
+//     $color_global : #eee !global;
+//     $color_local: #ccc;
+// }
+// .box2 {
+//     color: $color_global;
+//     //color: $color_local; 에러발생
+// }
+
+$max-width: 1000px;
+
+@function columns($number: 1, $columns: 12) {
+    @return $max-width * ($number / $columns)
+}
+
+.box_group {
+    width: $max-width;
+
+    .box1 {
+        width: columns(); //1/12
+    }
+    .box2 {
+        width: columns(8); //8/12
+    }
+    .box3 {
+        width: columns(3); //3/12
+    }
+}
+@function limitSize($size) {
+    @if $size >= 0 and $size <= 200px {
+        @return 200px;
+    }@else {
+        @return 800px;
+    }
+}
+div {
+    width: limitSize(180px);
+    height: limitSize(340px);
+}
+
+$hojun: 10;
+@while $hojun > 1 {
+    $hojun: $hojun - 2;
+    .content-#{$hojun}{
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+}
+
+// Sass - each문
+// color-palette 리스트에 들어있는 색상을 each문을 사용하여 background에 색상값을 넣어준다.
+$color-palette: #dad5d2 #3a3532 #375945 #5b8767 #a6c198 #dbdfc8;
+
+@each $color in $color-palette {
+  $i: index($color-palette, $color); //index는 list의 내장함수
+  .color-circle:nth-child(#{$i}) {
+    background: $color;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+  }
+}

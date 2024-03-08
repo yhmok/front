@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            var str = 'welcome To my world'; // string객체는 불변객체
+                                             // immutable객체
+            console.log(str.length)
+
+            str[0]='A' // 수정불가
+            console.log(str)
+            console.log(str[0])
+
+            // 리터럴로 생성하는 것은 값이 같으면 같은 곳을 바라보고 있다.
+            var str1 = 'welcome'
+            var str2 = 'welcome'
+            console.log(str1==str2)
+
+            // 생성자로 생성한 것은 서로 다른 영역에 생성이 되는 것이다.
+            var str3 = new String('welcome')
+            var str4 = new String('welcome')
+            console.log(str3==str4)
+
+            var str5 = str3; //앝은복사
+            console.log(str5==str3)
+
+            var str6 = str.slice(3, 10); // 3~9
+            console.log(str6)
+            var str7 = str.substring(3, 10) // index3~index9 까지. 음수값 사용불가
+            console.log(str7)
+            var str8 = str.substr(3, 10) // index3에서 10자리
+            console.log(str8)
+
+            var str9 = '대한민국'
+            var str10 = '우리나라'
+            var str11 = str9.concat(str10)
+            console.log(str11)
+
+            var a = 'Welcome'
+            var b = "Welcome To"
+            var c = a.toUpperCase();
+            console.log(c)
+
+            var d = str.split(" ") // 문자열을 공백로 분할해서 배열에 넣음
+            console.log("split : " + d)
+
+            var e = String.fromCharCode(65) // 아스키코드 A->65 Enter->13
+            console.log(e)
+
+            var f = 'abcde'.charCodeAt(2); // 아스키코드에 해당하는 문자 a->97
+            console.log(f)
+
+            var f = 'abcde'.codePointAt(2); //
+            console.log(f)
+
+            var h = str.indexOf("To") // index값
+            console.log(h);
+
+            var name = '이순신 '
+            var k =name.trim()
+            console.log(k)
+
+            var j = name.repeat(5)
+            console.log(j)
+
+            var i = str.search("my")
+            console.log(i) // 없으면 -1, 있으면 위치
+
+            var i = str.match('my') 
+            console.log(i) // 있으면 글자, 없으면 null
+            document.write(i)
+
+            var i =str.replace('my', 'Your') //my ->Your로 변경
+            console.log(i)
+        </script>
+        
+    </body>
+    </html>
+</body>
+</html>
+<!-- 
+문자열
+    length
+
+    문자열 추출
+    - slice
+    - substring
+    - substr
+        slice와 substring의 차이점은 음수값 사용
+            slice는 음수값 사용이 가능하다.,
+            slice(start, end)
+            end에 음수값은 문자열 끝에서 찾는다
+            slice(3, -1) -1은 문자열의 마지막 문자
+
+    concat
+    toUpperCase
+    toLowerCase
+    split
+
+    fromCharCode
+    charCodeAt
+    codePointAt
+
+    indexOf
+
+    trim 공백제거
+    repeat 반복출력
+
+
+    ★ search
+    ★ match
+    ★ replace
+
+    유효성검사
+    정규표현식 /[가-힣]/, new Reg(/[0-9]/)
+
+문자열을 생성하는 방식
+1. literal방식
+2. 생성자함수 방식
+
+URI를 파싱하거나 경로명에서 파일명이나 확장자를 추출할때 문자열 관련 API등이 사용된다.
+ -->

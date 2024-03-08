@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<body>
+    <h1>제이쿼리 사용하기</h1>
+    <form action="">
+        사용자이름 <input type="text" id="username"><br>
+        비밀번호 <input type="text" id="password"><br>
+        이메일 <input type="text" id="email"><br>
+        <input type="submit" id="btnSave" value="저장"><br>
+    </form>
+    <a href="http://www.naver.com">네이버링크</a>
+
+    <script>
+        let index = {
+            // e -> 이벤트 객체
+            init: function () { // 호출이 되야 실행이된다.
+                // 화살표 함수에서 this는 외부 객체(init)를 나타낸다.
+                // btnSave.addEventListener('click', (e) => {
+                //     // 기본이벤트 제거 (form태그의 action이 실행되지 않도록 summit이벤트 제거)
+                //     e.preventDefault(); 
+                //     this.save();  // this를 쓰기 위해서 화살표함수로 변경                 
+                // });
+
+                // 일반 함수로 했을 경우 this
+                let _this = this; // 표현식 statement
+                
+                btnSave.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    _this.save();  // 일반함수에서 this는 이벤트가 연결된 객체 (btnSave)
+                    // save함수에 this를 사용하려면 외부에서 this를 가져온다.
+                });
+                // 수정 클릭 -> 수정function() 실행
+                // 삭제 클릭 -> 삭제function() 실행
+            },
+            save: function () {
+                let data = {
+                    username: username.value,
+                    password: password.value,
+                    email: email.value,
+                }
+                console.log(data)
+            }
+            // 수정: function() {}
+            // 삭제: function() {}
+        }
+        index.init(); //호출
+
+        // javascript
+        var inputs = document.querySelectorAll("input[type=text]"); // 배열
+
+        // html 컬렉션(collection)
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].style.padding = "5px";
+            inputs[i].style.borderRadius = "10px";
+            inputs[i].style.margin = "5px";
+
+            // 표준이벤트모델
+            inputs[i].addEventListener("focus", function () {
+                this.style.backgroundColor = "steelblue";
+                this.style.color = "white";
+            });
+
+            inputs[i].addEventListener("blur", function () {
+                this.style.backgroundColor = "snow";
+                this.style.color = "black";
+            });
+        }
+    </script>
+</body>
+
+</html>
+<!-- 
+    jQuery
+        자바스크립트 라이브러리 - 자바스크립트보다 쉽게하기 위해서
+        문서객체모델 - DOM
+        UI/UX구현
+        이미지슬라이드
+    설치        
+        1. CDN방식
+        2. 다운로드방식
+
+    플러그인
+    제이쿼리를 사용하면 웹페이지가 무거워진다.
+
+    기본이벤트
+        form -> action
+        a -> href
+
+    화살표 함수에서 this
+    
+    기본이벤트 제거 - e.preventDefault()
+    이벤트 객체 -> e.event
+ -->

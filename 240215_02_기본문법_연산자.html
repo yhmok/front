@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.write("welcome ")
+        document.write("welcome ")
+        document.write("<h2>welcome</h2> ")
+
+        var name="이순신"; //문자
+        document.write("<h3>"  + name + "</h3>");
+        document.write(typeof name);
+
+        var age=30; //숫자
+        // ES5 문법 
+        document.write("<h3>"  + age + "살</h3>");
+
+        // ES6 문법
+        document.write(`<h3>  ${age} 살</h3>`);
+
+        document.write(typeof age);
+
+        // 변수를 초기화하기 않으면 undefined이다.,
+        var 이름;
+        document.write("<br>");
+        document.write(이름);
+        document.write("<br>");
+        document.write(typeof 이름);
+        document.write("<br>");
+        document.write(Boolean(이름));
+        document.write("<br>");
+        document.write(Boolean(name) + " ");
+        document.write(Boolean(age) + "<br> ");
+
+        // var는 변수명 중복을 허용
+        var 이름="원균";
+
+        // let은 변수명 중복허용 안됨
+        let 이름3;
+
+        // 상수선언
+        // 데이타값 변경이 불가하다.
+        // 보통 대문자를 사용한다.
+        const str='welcome';
+        const PI = 3.14;
+        // PI = 100; -> 불가능
+
+        var $name, _name, userName, userLogin
+        var let=100;
+
+    </script>
+</head>
+<body>
+    <h1>자바스크립트 첫경험</h1>
+
+    <script>
+        //document.write("<h2>welcome</h2> ")
+        // escape문자
+        var msg = "I'm a boy!!"
+        document.write(msg+"<br>")
+
+        var msg = 'I\'m a boy!!'
+        document.write(msg+"<br>")
+
+        var msg = " \"대한민국\" 우리나라 ";
+        document.write(msg+"<br>")
+
+        var msg = "\\대한민국\\ 우리나라 ";
+        document.write(msg+"<br>")
+
+        //alert("대한민국 \n 우리나라");
+        var user=null;
+        console.log(user)
+        console.log(typeof user) //object
+        console.log(Boolean(user)) //false
+
+        var num="Mike";
+        var y=num/2;
+        console.log(y); //NaN -> 숫자가 아님
+        console.log(typeof y) //number
+        console.log(Boolean(y)) //false
+
+        // var result = prompt("이름을 입력", "한글로")
+        // 사용자가 다른것을 눌렀을때도 고려를 해줘야 한다.
+        // if(result){
+        //     document.write(result+"님 안녕하세요.");
+        // } else {
+        //     document.write("취소를 눌렀습니다.");
+        // }
+
+        // var result = confirm("당신은 성인입니까?") //true 또는 false반환
+        // console.log(result)
+        // if(result) {
+        //     document.write("입장가능")
+        // } else {
+        //     document.write("입장불가")
+        // }
+
+        //형변환
+        var str1 = "100" //문자데이터는 불변
+        console.log(typeof str1)
+        str1 = str1/20;
+        console.log(str1)
+        str1 = "100"
+        var str2=Number(str1)
+        str2 = str2+20
+        console.log(str2)
+
+        console.log(Boolean(true))
+        console.log(Boolean(false))
+        console.log(Boolean("false")) //true
+        console.log(Boolean("true")) //true
+        console.log(Boolean(0)) //false
+        console.log(Boolean(1))
+        console.log(parseInt("30.5a"))
+        console.log(Number("30.5a"))
+
+        //실행시간 축정
+        console.time("start1")
+        var num2 = 100;
+        num2=num2+500;
+        console.timeEnd("start1")
+
+        //삼항조건연산자
+        var a=10, b=20;
+        var c = a>b?"자바스크립트" : "제이쿼리"
+        document.write(c+"<br>")
+
+        if(a>b) {
+            c="자바스크립트";
+        } else {
+            c="제이쿼리";
+        }
+
+        //짧은조건문
+        document.write(a>b || "실행?????" + "<br>");
+        document.write(a>b && "실행?????" + "<br>");
+
+    </script>
+</body>
+</html>
+
+<!-- 
+document객체
+console객체
+
+고양이가 생선을 먹는다
+고양이.먹다("생선")
+객체.메소드(인자)
+생선(문자열값)은 파라미터 또는 매개변수가 전달된다.
+
+변수선언하기
+var let const
++ : 더하기, 연결연산자
+
+자바스크립트
+EcmaScript -> 표준
+
+어떤 특정변수에 데이타가 어떤 값이 저장되어 있는가? 그 변수는 어떤 타입인가?
+string
+number
+function
+object
+boolean
+array
+----------
+undefined -> 값이 할당되지 않은 상태
+null -> 존재하지 않는 값
+NaN -> Not a Number
+==> false
+typeof
+
+[변수명 작명법]
+- 변수는 문자와 숫자, $와 _만 사용한다.
+- 첫글자는 숫자가 될 수 없다
+- 예약어는 사용할 수 없다
+- 가급적 상수는 대문자로 사용한다.
+- 변수명은 읽기쉽고 이해할 수 있게 선언한다.
+- 이름은 camel표기법으로 작성하자
+checkTime()
+
+엄격모드
+"use strict" 맨 첫줄에 입력
+var let=100; -> strict mode에서 에러
+userAge
+Userage -> 생성자함수 표기법
+
+// 내장함수
+alert() 경고창
+prompt() 입력값 받음
+confirm() 확인받음
+window객체에 있음
+window.document.write()
+window.alert()의 줄임말
+
+함수의 용도
+그 함수의 매개변수와 매개변수 인자값을 어떤 타입인가?
+그 함수의 반환값이 무없인가?
+매개변수의 갯수?
+
+데이타 타입
+문자, 숫자 -> 형변환 가능
+type conversion
+String90 문자로 변환
+Number() 숫자로 변환
+Boolean() 불린으로 변환
+parseInt() 정수로 변환
+
+[연산자]
+사칙연산자
+ + - * / %(나머지)
+
+대입연산자 
+=
+복합대입연산자 
+a=a+10 -> a+=10
+-= *= /= %=
+
+비교연산자
+< > <= >= == !=
+
+동등연산자
+==
+
+동치연산자(타입까지 비교)
+===
+
+증감연산자
+++ --
+선위 먼저 중가하고 저장한다.
+a++
+후위 먼저 저장하고 중가한다.
+ ++a
+
+논리연산자
+||(OR) &&(AND) !(NOT)
+
+★삼항연산자
+
+★짧은조건연산자
+조건 || 거짓일떄 실행
+조건 && 참일때 실행
+
+비트연산자
+-->

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>books.json파일을 fetch api요청해서 화면에 테이블태그에 데이터 바인딩 해보자.</h3>
+    <button onclick="GET()">데이터조회</button>
+    <div id="content"></div>
+    <script>  
+        function GET() {
+            var url = "data/books.json"; // JSON데이타 파일
+            fetch(url)
+            .then(response=>response.json())
+            .then(json=> {
+                let data = json.books.book; // ★ books객체 안에 book배열 형태
+                getData(data);
+            });
+        }
+
+        function getData(data) {
+            var str = "<table border='1'>";
+                str += "<tr><th>작자</th><th>책이름</th><th>가격</th><th>출판사</th></tr>"
+                data.forEach(el => {
+                    str += `<tr><td>${el.name}</td><td>${el.publisher}</td>`
+                    str += `<td>${el.author}</td><td>${el.price}</td></tr>`                 
+                });
+                str += '</table>'
+            content.innerHTML = str;    
+        }
+    </script>    
+</body>
+</html>

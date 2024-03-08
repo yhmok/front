@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let obj = {
+            count: 0,
+            startTimer: function() {
+            console.log(this.count);
+            let callback = function() { console.log(this.count++); };
+            setInterval(callback, 1000);
+        }
+}
+        obj.startTimer();
+    </script>
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/040216.js"></script>
+     
+</head>
+<body>
+    <h1>자바스크립트 함수에 대하여</h1>
+    <button onclick="window,print()">인쇄하기</button>
+    <button onclick="window,open('240216_01_함수.html', '창', 'width=200, height=250')">공지사항</button>
+    <hr>
+    <button id="btn">
+        이벤트 연결
+    </button>
+    <hr>
+    <button onclick="heroAdd()">사용자추가</button>
+    <button onclick="heroDel()">사용자삭제</button>
+    <br>
+
+<script>
+    function Hero(name, age) {
+    this.name = name,
+    this.age = age
+}
+    var name = "토니스타크"
+    var hero = {
+        name:'아이언맨',
+        age: 30,
+        // 화살표 함수
+        // 자신만의 this를 가지지 않으므로 this인식 못함. 
+        // 화살표 함수에서 this는 window가 된다.
+        skill:()=> {
+            console.log(this.name+'은 날을 수 있다.')
+        }
+    }
+    hero.skill();
+
+    var hero2 = new Hero('캡틴아메리카', 20)
+    console.log(hero2)
+
+    // 객체에 속성을 추가, 삭제
+    // 단축 프로퍼티 사용하기 - 계산된 속성 computed property
+    hero2.gender='남자'
+    hero2['skill']='방패' //계산된 속성
+    for(var key in hero2){
+        document.write(key + " : " + hero2[key] + '<br>')
+    }
+
+    function heroAdd() {
+        const temp = document.createElement('ul'); //ul태그 생성
+        for(var key in hero2) {
+            temp.innerHTML += "<li>" + key + " : " + hero2[key] + "</li>"
+        }
+        document.querySelector('body').append(temp);
+    }
+         
+    function heroDel() {
+        const temp = document.querySelector('ul'); //ul태그 선택
+        document.querySelector('body').removeChild(temp);
+    }
+
+</script>
+</body>
+</html>
+<!-- 
+함수의 종류
+- 내장함수
+- 외장함수
+- 일반함수
+- 호이스팅(hoisting) 
+    메모리에 자동 올라간다
+    stack영역
+    함수호출 -> call stack
+- 콜스택/스택오버플로우
+- 전역변수와 지역변수
+- 익명함수
+- 화살표함수
+- 매개변수와 기본 파라미터
+- arguments(아규먼트)
+- 가변파라미터
+    arguments 내장객체
+- 재귀함수
+- 즉시실행함수
+- 콜백함수
+- 내부함수와 외부함수
+- statement와 expression
+- spread연산자
+- 클로저(closer)
+- 함수를 리턴하는 함수
+- 객체를 리턴하는 함수
+
+함수는 일련의 코드 블록을 그룸화하여 특정 작업을 수행하는 코드단위
+재사용 가능한 코드조각
+필요할때 호출하여 실행한다.
+
+자바스크립트는 프로토타입을 기반으로 한 함수형 언어이다.
+
+window.open("파일명", "쟝소=200, height=250")
+javascript alert, javascript open검색 -> MDN공식 문서에서 사용법을 찾아보자
+
+호이스팅(hoisting) 
+    메모리에 자동 올라간다
+    stack영역
+    함수호출 -> call stack
+
+가변파라미터
+    arguments 내장객체
+
+함수선언문
+함수표현식 - 익명함수    
+
+재귀함수
+- 자기가 자기를 호출하는 함수
+- 팩토리얼 계산
+
+화살표 함수
+- 자바에서는 람다식
+
+콜백함수
+- 함수에 매개변수로 함수가 들어가는 함수
+- 어떤일이 끝나면 수행되는 함수
+
+addEventListener() 콜백함수가 들어가야한다.
+인터프리터언어
+- 위에서 순차적으로 실행
+- btn을 실행하고자하는데 아직 btn을 찾지 못한 경우
+  -> 스트립트를 아래로 내리던가 window.onload=function() { }처리함
+
+this객체
+
+[자바스크립트 중급문법]
+전역변수와 지역변수
+내부함수(지역함수)와 외부함수
+클로져
+생성자함수
+this객체
+
+함수 외부에서는 함수내부에 지역변수이 젭근할 수 없다
+
+var생략하면 자동 전역변수가 된다.
+객체지향언어의 방향성
+    모듈화, 은닉화, 캡슐화, 정보은닉, 추상화, 상속, 다형성
+
+전역변수 사용은 지양한다.
+
+내부에 지역변수에 접근해서 변수값을 변경할 수 있다.
+클로저(종결자) - 무법자 closer
+
+객체를 생성하는 방법
+    1.literal
+        var 고양이={ }
+            고양이.이름 = "나비"
+            고양이,나이 = 2
+            고양이.먹다 = function(food) {
+                return "응가"
+            }
+            // 먹다 -> 메소드(method0)
+            // 이름 -> 속성(property)
+    2.생성자함수
+
+    3.객체를 리턴하는 함수
+    
+    객체를 생성하기
+    객체를 읽어오기
+    객체의 속성을 추가, 변경, 삭제하기
+    객체의 구성은 
+        키 : 값
+        key : value 쌍으로 되어있다.
+
+    일반함수와 화살표 함수의 차이점은 this객체에 있다.
+    화살표 함수에서는 일반함수와는 달리 자신만의 this를 가지지 않는다.
+    화살표 함수 내부에서 this를 사용하면 그 this는 외부에서 값을 가져온다.
+
+객체복제
+구조분해할당
+
+얕은복사 - 주소만 공유
+깊은복사 - 복제
+-->

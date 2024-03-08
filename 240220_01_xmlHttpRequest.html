@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>XMLHTTPRequest() 사용하기</h1>
+    <div id="content"></div>
+
+    <script>
+        // 통신을 하기위한 객체 생성
+        var req = new XMLHttpRequest();
+        
+        // 요청. 요청 주소를 적는다.
+        req.open('GET', "https://jsonplaceholder.typicode.com/users", true);
+        req.send();
+        req.addEventListener("readystatechange", function() { // 통신이 완료가 되면 
+            // console.log(req.readyState); // 4
+            // console.log(req.status); // 200
+            // console.log(req.responseText); // 10명의 user데이타
+
+            if (req.readyState==4 && req.status == 200) { //정상으로 데이타를 받았을 경우만 실행
+                // 문자열을 JOSON데이타로 변환 -> key, value형태의 데이타로 변환
+                var data = JSON.parse(req.responseText);
+                console.log(data)
+                var str = "<p> id - name - username - email</p>";
+                // 배열 데이타가 넘어오므로 반복문으로 접근
+                data.forEach(el => {
+                    str += "<p>" + el.id + " : " + el.name + " : " + el.username + " : " + el.email + "</p>"
+                });
+                content.innerHTML = str;
+            }
+        });
+
+        let userInfo = {
+            name: "이순신",
+            age : 25
+        }
+        console.log(userInfo) // 일반객체 - object
+
+        // 자바스크립트의 JSON객체로 문자열로 변환한다.
+        var str = JSON.stringify(userInfo);
+        console.log(str) // JSON문자열 객체
+
+        var obj = JSON.parse(str); // 문자열을 JSON화일로 변환
+        console.log(obj);
+
+        // 데이타를 localStorage에 저장하기
+        // JSON객체로 문자열로 바꿔서 송신
+        localStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+        // localStorage에 저장된값을 읽어서 화면에 출력하기
+        var user = localStorage.getItem("userInfo");
+        document.write(user)
+
+        // 문자열을 객체로 변환
+        var user = JSON.parse(user);
+        var name = user.name;
+        var age = user.age;
+        document.write("<br><h3>" + name + ":" + age + "<h3>");
+
+
+    </script>
+</body>
+</html>
+<!--
+    ajax동적인 대화형 웹페이지를 맍든다.
+    Asynchronous javascript and XML 
+    localStorage
+    WebStorage
+    쿠키
+
+    브라우저의 (임시)저장장치
+        localStorage
+        - 브라우저의 Application>Storage>Local storage
+                                         session storage
+                                         cookies
+        WebStorage
+        
+        객체를 문자열로 변환하기
+            JSON.stringfy()
+        문자열을 객체로 변환하기
+            JSON.parse() 
+    
+    xmlHttpRequest실습하기
+        서버에서 JSON데이터를 받아와야한다.
+        JSON서버 
+        JSON placeholder검색 - Free Fake REST API
+
+        Representational State Transfer
+        CRUD서비스
+        데이타 조회, 수정, 삭제, 생성
+        GET - 조회
+        POST - 생성
+        PUT - 전체수정
+        PATCH - 부분수정
+        DELETE - 삭제
+
+    오늘할일
+    1)기상
+    2) 양치하고 세수
+    3) http공부
+    4) 햄버거 주문
+    5) javascript공부
+    6) 햄버거 도착 - 먹기
+
+    fetch는 promise객체를 반환한다.
+    promise객체
+        비동기방식
+        햄버거
+        비동기 방식
+    주문 -> resolve, reject
+        fullfill 주문완료
+    transaction
+        rollback
+
+    생성자 함수
+    new XMLHttpRequest()
+    XMLHttpRequest(XHR) 객체
+
+    통신 에러코드
+        100 -> 준비
+        200 -> 정상
+        300 -> 리다이렉트
+        400 -> 클라이언트 에러
+        500 -> 서버에러
+
+    readyState- 4
+    status - 200
+
+    통신이 정상적으로 이루어 지는지 콘솔에 확인하기
+        req.readyState
+        req.status
+        req.responseText
+    
+    바닐라자바스크립트
+    - 순수자바스크립트
+ -->

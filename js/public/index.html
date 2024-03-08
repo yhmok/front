@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <h1>사용자조회, 등록 페이지</h1>
+    <form action="/users" method="get">
+        <fieldset>
+            <legend>GET</legend>
+            <input type="submit" value="사용자조회">
+        </fieldset>
+    </form>
+    <form action="/users2" method="post" id="my-form">
+        <fieldset>
+            <legend>POST</legend>
+            사용자이름: <input type="text" name="name"><br>
+            사용자나이: <input type="text" name="age"><br>
+
+            <input type="submit" value="사용자등록">
+        </fieldset>
+    </form>
+
+    <a href="index2.html">index2.html</a>
+    <a href="index3.html">index3.html</a>
+    <a href="http://127.0.0.1:3000/products">products</a>
+    <script>
+        // $("#my-form").submit(function() {
+        //     event.preventDefault();
+        //     var serial = $(this).serialize();
+        //     var serialArray = $(this).serializeArray();
+        //     console.log(serial);
+        //     console.log(serialArray)
+
+        //     // 출력
+        //     $("<h2></h2>").text(decodeURIComponent(serial)).appendTo('body') // 한글 정상출력
+        //     $("<h2></h2>").text(serial).appendTo('body') // 한글깨짐
+        //     var out = ""
+        //     for (var i=0; i<serialArray.length; i++){
+        //         out += serialArray[i].name + " : " + serialArray[i].value + " ";
+        //     }
+        //     $("<h2></h2>").text(out).appendTo('body')
+        // });
+    </script>
+</body>
+</html>
+
+<!-- 
+    serialize()
+     - 폼요소 입력된 데이타를 인코딩된 문자열로 직렬화한다.
+    
+    npm install pm2 -g 
+    pm2 start server이름.js --watch
+    pm2 kill // service중지하기
+
+    decodeURIComponent()함수는 javascript에서 URL디코딩을 수행하는 함수
+    이 함수는 enciodingURIComponent()함수에 의해 URL인코딩된 문자열을 디코딩하여 원래 문자열로 변환
+
+    $.ajax({})
+    $.ajax("요청주소", {
+        url:"",
+        type: "GET",
+        data: "",
+        dataType: "",
+        success: ,
+        error: 
+    }).done()
+    ajax의 url이 성공하면 무조건 success가 실행된다.
+
+    $.ajax({
+        url:"",
+        type: "GET",
+        data: "",
+        dataType: "",
+        success: ,
+        error: 
+    })
+
+ -->

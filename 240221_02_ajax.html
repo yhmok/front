@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+<body>
+    <button type="button" onclick="getXML()">책정보 가져오기(XML)</button>
+    <button type="button" onclick="getJSON()">책정보 가져오기(JSON)</button>
+<script>
+    function getXML() {
+        // 데이타가 태그형태
+        $.ajax({
+            url: "data/books.xml",
+            method: "GET",
+            dataType: "xml",
+            success: function(data) {
+               var out = "<ol>"
+                $.each($(data).find("book"), function(i, d) {
+                    var name = $(this).find("name").text();
+                    var publisher = $(this).find("publisher").text();
+                    var author = $(this).find("author").text();
+                    var price = $(this).find("price").text();
+
+                    // document.write(name+publisher+author+price+"<br>")
+                    out += `<li>${name} : ${publisher} : ${author} : ${price} </li>`
+                }) ;
+                out += "</ol>"
+                $('body').append(out)
+                
+            }
+        });
+    }
+
+    function getJSON() {
+        // 데이타가 객체형태
+        $.ajax({
+            url: "data/books.json",
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+               var out = "<ol>"
+                $.each($(data.books.book), function(i, d) {
+                    var name = d.name;
+                    var publisher = d.publisher;
+                    var author = d.author;
+                    var price = d.price;
+
+                    out += `<li>${name} : ${publisher} : ${author} : ${price} </li>`
+                }) ;
+                out += "</ol>"
+                $('body').append(out)
+                
+            }
+        });
+    }
+   
+    // 정적인 문서에 적용하는 이벤트
+    // 동적인 문서이므로 hover는 적용 불가
+    $("li").hover(function() {
+        $(this).css("background", "pink")
+    }, function(){
+        $(this).css("background", "white")
+    });
+
+    // 동적인 문서에 적용하는 이벤트 - 이벤트 위임
+    // 동적인 문서이므로 mouseenter가 적용됨
+    // - 상위 요소에 이벤트를 연결하고 하위요소에 이벤트를 위임한다.
+    $(document).on('mouseenter', "li", function(){
+        $(this).css("background", "pink")
+    });
+    $(document).on('mouseleave', "li", function(){
+        $(this).css("background", "white")
+    });
+</script>
+</body>
+</html>

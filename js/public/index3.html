@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
+</head>
+<body>
+    <form action="" id="f1">
+        <fieldset>
+            <legend>데이타 추가</legend>
+            <table>
+                <tr>
+                    <td><label for="">상품명</label></td>
+                    <td><input type="text" name="name" id="name"></td>
+                </tr>
+                <tr>
+                    <td><label for="">모델번호</label></td>
+                    <td><input type="text" name="modelnumber" id="modelnumber"></td>
+                </tr>
+                <tr>
+                    <td><label for="">시리즈</label></td>
+                    <td><input type="text" name="series" id="series"></td>
+                </tr>
+            </table>
+            <input type="submit" value="상품추가" id="f1">
+        </fieldset>
+    </form>
+    
+    <input type="text" id="id" size="15">
+    <input type="button" id="delete" value="삭제">
+    <input type="button" id="update" value="수정"><br>
+    <h2>Product</h2>
+    <table id="output" border="1"></table>
+</body>
+<script>
+    // 전체조회 -> get
+    function selectData() {
+        //테이블 내용 비우기
+        $("#output").empty();
+        // JSON데이타 가져오기
+        $.getJSON("/products", function(data) {
+            $(data).each(function(i, el) {
+                var out = '';
+                out += "<tr />";
+                out += "<td>" + el.id + "</td>";
+                out += "<td>" + el.name + "</td>";
+                out += "<td>" + el.modelnumber + "</td>";
+                out += "<td>" + el.series + "</td>";
+                $('#output').append(out);
+            });
+        });
+    }
+    selectData();
+
+    // 데이타 추가 - post
+    $("#f1").submit(function() {
+        var data = $(this).serialize(); // req.body 통째로 데이타 보냄
+
+        // HTTP POST 요청을 하여 서버로부터 데이터를 로드 한다.
+        $.post("/products2", data, selectData) // $.post(url, 추가, 콜백)
+        event.preventDefault(); // 기본이벤트 제거. selectData()실행후 화면 깜박거림 제거
+                                // form 태그의 action이 실행 안되게 하기 위해서...
+    });
+
+    // 삭제
+    $("#delete").click(function(){
+        var ok = confirm("삭제 ok?")
+        var id = $("#id").val();
+        var str = "/products/" + id;
+        if(ok) {
+            $.ajax({
+                url: str,
+                type: 'delete',
+                success: selectData()
+            });
+        } 
+        return;
+    });
+    //수정
+    $("#update").click(function(){
+        var id = $("#id").val();
+        var str = "/products/" + id;
+
+        $.ajax({
+            url: str,
+            type: 'put',
+            data: {
+                name: $("#name").val(),
+                modelnumber: $("#modelnumber").val(),
+                series: $("#series").val(),
+            },
+            success: selectData()
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let s1 = "hello";
+        let s2 = 'world';
+        console.log("%s %s", s1, s2);
+
+        // 연습문제
+        // 1) 모음위치
+        // "When I find myself in times of trouble Mother Mary comes to me Speaking words of wisdom, let it be."
+        // 위 문자열에서 모음(aeiou)들의 위치를 출력하는 코드를 구현하시오.
+        var str = "When I find myself in times of trouble Mother Mary comes to me Speaking words of wisdom, let it be."
+
+        function vowels(str) {
+            const vowelsChecker = ["a", "e", "i", "o", "u"];
+            const vowePosition = []
+
+            for (var i in str) {
+                if (vowelsChecker.includes(str[i].toLowerCase())) {
+                    vowePosition.push(i);
+                } 
+            }
+            return vowePosition;
+        }
+        vowePosition = vowels(str);
+        document.write(vowePosition);
+        document.write('<hr>')
+
+        // 2) 공백제거
+        var d = str.split(" ");
+        var newStr = '';
+        for(i=0; i<d.length; i++){
+            newStr += d[i]
+        }
+        document.write(newStr + '<hr>')
+
+
+        // 3) 쪼개기
+        var str = "When I find myself in times of trouble Mother Mary comes to me Speaking words of wisdom, let it be."
+        var d = str.split(" ");
+
+        for(i in d) {
+            document.write(`${i} : ${d[i]}` + '<br>')
+        }
+        document.write('<hr>')
+
+        // 4) 경로명
+        // let a = ["c:/temp/guide.hwp","c:/pj/frontend/chap05/substring1.js", "homework.docx"]
+        // 파일확장자 출력하기
+        let a = ["c:/temp/guide.hwp","c:/pj/frontend/chap05/substring1.js", "homework.docx"]
+
+        for (var i=0; i<a.length; i++){
+            let lastIndex = a[i].lastIndexOf('.');      
+            let onlyextention = a[i].substr(lastIndex)
+            document.write("확장자: ", onlyextention + ' || ')
+            var fullname = a[i].substr(0, lastIndex)
+            var sp = fullname.split('/');
+            document.write("파일명: ", sp[sp.length-1] + onlyextention + ' || ')         
+            document.write("파일이름만 출력: ", sp[sp.length-1] + '<br>')
+        }
+        document.write('<hr>')
+    </script>
+</body>
+</html>

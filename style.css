@@ -1,0 +1,356 @@
+body {
+  color: #00f;
+}
+
+div {
+  margin: 5px;
+  color: #000;
+}
+
+body {
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+ul {
+  font-size: 20px;
+  background-color: silver;
+}
+ul a {
+  color: red;
+}
+ul a:hover {
+  color: blue;
+}
+
+ol {
+  color: blue;
+}
+ol {
+  border: 2px solid lime;
+}
+ol > li {
+  margin: 100px;
+}
+
+#box1 {
+  margin: 100px;
+}
+#box1-title {
+  padding: 10px;
+}
+
+.box1 .box2 .box3 {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 700px) {
+  #box1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  #box2 {
+    width: 90%;
+  }
+}
+@media screen and (min-width: 700px) {
+  div.box3:hover {
+    background-color: red !important;
+  }
+}
+
+div {
+  width: 100px;
+  height: 199px;
+  border: 1px solid black;
+}
+
+p {
+  border: 1px solid red;
+}
+
+.btn-primary {
+  background-color: blue;
+  border: 1pc solid #0000cc;
+  color: white;
+}
+
+.box1 {
+  width: 120px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.box2 {
+  width: 120px;
+  height: 150px;
+  border-radius: 10pxpx;
+}
+
+.c, .b, .a {
+  font-size: 14px;
+  font-style: italic;
+}
+
+.a {
+  color: red;
+}
+
+.b {
+  color: blue;
+}
+
+.fs30, .c {
+  font-size: 30px;
+}
+
+.fw, .c {
+  font-weight: bold;
+}
+
+.footer div {
+  width: 120px;
+  margin: 0 auto;
+}
+
+.footer {
+  height: 150px;
+}
+.ico_book {
+  background: url(img/book.png) no-repeat;
+}
+
+.ico_phone {
+  background: url(img/phone.png) no-repeat;
+}
+
+.ico_zoom {
+  background: url(img/zoom.png) no-repeat;
+}
+
+h1 {
+  font-size: 30px;
+}
+
+h2 {
+  font-size: 200px;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+.h1 {
+  font-size: 30px;
+}
+
+.h2 {
+  font-size: 200px;
+}
+
+.h3 {
+  font-size: 15px;
+}
+
+#h1 {
+  font-size: 30px;
+}
+
+#h2 {
+  font-size: 200px;
+}
+
+#h3 {
+  font-size: 15px;
+}
+
+div:nth-child(1) {
+  top: 10px;
+}
+
+div:nth-child(2) {
+  top: 20px;
+}
+
+div:nth-child(3) {
+  top: 30px;
+}
+
+div:nth-child(4) {
+  top: 40px;
+}
+
+div:nth-child(5) {
+  top: 50px;
+}
+
+div:nth-child(6) {
+  top: 60px;
+}
+
+.btn {
+  border-radius: 100px;
+}
+
+.btn {
+  border: 1px solid red;
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  transform: translate(-50%, -50%);
+}
+
+.box {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 0%;
+  z-index: 2;
+  transform: translateX(-50%);
+}
+
+.text {
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.text2 {
+  overflow: hidden;
+  display: -webkit-box;
+  text-overflow: ellipsis;
+  width: 100px;
+  height: 50px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+div.box {
+  margin: 10px;
+}
+
+div.box {
+  border-right: 3px solid blue;
+}
+
+p {
+  border-left: 3px solid red;
+}
+
+.section .list {
+  padding: 10px;
+}
+
+.btn.active {
+  color: red;
+}
+
+.box {
+  padding: 10px;
+}
+
+.box {
+  font-weight: bold;
+  font-size: 10px;
+  font-family: serif;
+}
+
+.box_group {
+  width: 1000px;
+}
+.box_group .box1 {
+  width: 83.3333333333px;
+}
+.box_group .box2 {
+  width: 666.6666666667px;
+}
+.box_group .box3 {
+  width: 250px;
+}
+
+div {
+  width: 200px;
+  height: 800px;
+}
+
+.content-8 {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.content-6 {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.content-4 {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.content-2 {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.content-0 {
+  width: 100px;
+  height: 100px;
+  background: red;
+}
+
+.color-circle:nth-child(1) {
+  background: #dad5d2;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(2) {
+  background: #3a3532;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(3) {
+  background: #375945;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(4) {
+  background: #5b8767;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(5) {
+  background: #a6c198;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+.color-circle:nth-child(6) {
+  background: #dbdfc8;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}/*# sourceMappingURL=style.css.map */

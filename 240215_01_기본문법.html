@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 태그로 작성하기 -->
+    <script>
+        //script
+    </script>
+    <!-- 외부화일 불러오기 -->
+    <script src="js/aaa.js"></script>
+</head>
+<body>
+    <button onclick="alert('welcome')">버튼1</button>
+    <button onclick="alert('welcome')">버튼2</button>
+    <button onclick="alert(this.innerHTML)">버튼3</button>
+    <button onclick="alert(this.textContent)">버튼4</button>
+    <button id="btn5">버튼5</button>
+
+    <!-- 클릭시 play()함수 호출 -->
+    <button id="btn6" onclick="play()">버튼6</button>
+    <button id="btn7">버튼7</button>
+    <hr>
+    <h1>welcome to my world !!</h1>
+    <h1>welcome to my world !!</h1>
+    <h2 id="h2">안녕하세요</h2>
+
+    <script>
+        // play함수 선언(정의)
+        function play() {
+            h2.style.border="3px double red";
+        }
+        function play2() {
+            h2.style.border="3px dotted red";
+            h2.style.borderRadius="20px";
+        }
+        btn7.onclick=play2;
+        
+        //문서객체모델(DOM)
+        //var btn5 = document.getElementById("btn5"); 아이디는 하나이므로 아이디명으로도 찾는다.
+        var h1 = document.getElementsByTagName('h1');
+        console.log(btn5);
+        console.log(h1);
+
+        // 고전이벤트모델
+        btn5.onclick=function(){
+            h1[0].style.background='red';
+            h1[1].style.background='red';
+            h1[1].style.color='white';
+            // 한꺼번에 여러개 줄때 백팁으로 묶는다.
+            h1[0].style.cssText=`
+                font-size: 20px; color: orange; text-align:center;
+                background: red; padding: 10px;
+            `
+        } 
+    </script>
+
+    <!-- 외부화일 불러오기 -->
+    <script src="js/bbb.js"></script>
+</body>
+</html>
+<!--
+// 기본문법
+// 변수와 상수
+// 연산자
+// 데이터타입
+// 자료형
+// 조건문
+// 반복문
+// 객체
+// 배열
+// 함수
+// 내장객체
+// 브라우저객체모델
+// 문서객체모델
+// 이벤트
+// 예외처리
+// 비동기통신(ajax)
+// promse객체
+
+//html태그에 스크립트삽입
+//script.js연결
+//스크립트파일직접실행 -> node.js설치
+ 자바스크립트 활용목적
+ 웹퍼블리셔
+- UI/UX동적인 요소구현
+- 풀다운메뉴
+- 이미지 슬라이드
+- 팝업 모달창
+- 드로워, 패널창 
+- 탭메뉴
+
+프런트앤드개발자
+- 데이타바인딩
+- 비동기 통신(ajax)
+- 유효성 검사(validation)
+
+inline script
+인라인스크립트
+내부스크립트
+외부스크립트
+
+변수에 저장
+var let const
+variable : 메모리 저장장소
+어떤 데이터(자료)를 저장하는 그릇
+
+css(snake표기법)              javascript(camel표기법)
+background-color            bcakgroundColor
+color                                 color
+font-size                           fontSize
+text-align                         textAlign
+-->

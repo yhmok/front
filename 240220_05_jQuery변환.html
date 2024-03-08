@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+</head>
+
+<body>
+    <h1>제이쿼리 사용하기</h1>
+    <form action="">
+        사용자이름 <input type="text" id="username"><br>
+        비밀번호 <input type="text" id="password"><br>
+        이메일 <input type="text" id="email"><br>
+        <input type="submit" id="btn-save" value="저장"><br>
+    </form>
+    <a href="http://www.naver.com">네이버링크</a>
+
+    <script>
+        // 메소드 체이닝 기법
+        $("input").css("padding", "5px").css("margin", "5px")
+
+        // 객체표기법
+        $("input").css({
+            "border-radius" : "10px",
+            boxShadow : "3px 3px lightgray"
+        }) ;
+        // " " 쌍따옴표 안에는 CSS속성
+        // 자바스크립트 속성은 따옴표 생략
+
+        let style1 = {
+            backgroundColor : "lightgray",
+            width: "100px",
+            "text-align" : "center",
+            border : "1px solid red",
+            boxShadow : "3px 3px tomato"
+        }
+        $("input[type=text]").css(style1);
+
+        $("input[type=text]").on("focus", function() {
+            $(this).css("background", "pink")
+            $(this).css("color", "blue")
+        });
+
+        $("input[type=text]").on("blur", function() {
+            $(this).css("background", "blue")
+            $(this).css("color", "white")
+        });
+
+        let index = {
+            init: function() {
+                $("#btn-save").on("click", (e)=> {
+                    e.preventDefault();
+                    this.save();
+                });
+            },
+            save: function () {
+                let data = {
+                    username: $("#username").val(),
+                    password: $("#password").val(),
+                    email: $("#email").val(),
+                }
+                console.log(data)
+            }
+       }
+       index.init(); //호출
+    
+    </script>
+</body>
+
+</html>

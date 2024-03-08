@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(function () {
+            // 조회
+            $('#get').click(function () {
+                $.ajax({
+                    url: "/users", //GET을 클릭하면 users에서 data를 넘겨줌
+                    type: "get",
+                    dataType: "text",
+                    success: function(data){
+                        $("#output").val(data)
+                    }
+                })
+            });
+
+            // 등록 - body방식
+            // 쿼리스트링 방식이 안되는 이유는 inpt태그에 form태그가 없기 때문
+            // query를 param으로 바꿔서 실행
+            $('#post1').click(function () {
+                $.ajax({
+                    url: "/users2", // body방식
+                    type: "post",
+                    dataType: "text",
+                    data: { // 전송할 데이타
+                        name: $('#name').val(),
+                        age: $('#age').val()
+                    },
+                    success: function(data){
+                        $("#output").val(data)
+                    }
+                })
+            });
+            // 등록 - param방식
+            $('#post2').click(function () {
+                $.ajax({
+                    url: "/users", // body방식
+                    type: "post",
+                    dataType: "text",
+                    data: { // 전송할 데이타
+                        name: $('#name').val(),
+                        age: $('#age').val()
+                    },
+                    success: function(data){
+                        $("#output").val(data)
+                    }
+                })
+            });         
+            
+            // 수정
+            $('#put').click(function () {
+                let id = $("#num").val();
+                $.ajax({
+                    url: "/user2/" + id, // body방식
+                    type: "put",
+                    dataType: "text",
+                    data: { // 전송할 데이타
+                        name: $('#name').val(),
+                        age: $('#age').val()
+                    },
+                    success: function(data){
+                        $("#output").val(data)
+                    }
+                })
+             });
+            $('#delete').click(function () {
+                let id = $("#num").val();
+                $.ajax({
+                    url: "/user/" + id, // body방식
+                    type: "delete",
+                    dataType: "text",
+                    data: { // 전송할 데이타
+                        name: $('#name').val(),
+                        age: $('#age').val()
+                    },
+                    success: function(data){
+                        $("#output").val(data)
+                    }
+                })
+             });
+        });
+    </script>
+</head>
+<body>
+    <button id="get">GET</button>
+    <button id="post1">POST1</button>
+    <button id="post2">POST2</button>
+    <button id="put">PUT</button>
+    <button id="delete">DELETE</button>
+    <hr>
+    <h1>input</h1>
+    번호 : <input type="number" id="num" size="3"><br>
+    이름 : <input id="name" name="name"/><br>
+    나이 : <input id="age" name="age"/>
+    <h2>output(결과보기)</h2>
+    <textarea id="output" disabled="disabled" cols="50" rows="10"></textarea>
+</body>
+</html>
+<!-- 
+    조회
+        get
+        /users
+        http://dev.mysql.com/downloads/install
+        계정 - root
+        비번 - 1234
+ -->

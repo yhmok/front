@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var a1 = [1, 2, 3];
+        var a2 = ["a", "b", "c"];
+        console.log(a1.toString());
+        console.log(a2.toString());
+
+        // 구조분해할당
+        var a = [3, 4, 5];
+        var [e1, e2, e3] = a;
+        console.log("%d %d %d", e1, e2, e3);
+        [e1, e2] = a;
+        console.log("%d %d", e1, e2);
+
+        var b = [3, 4, 5, 6, 7, 8];
+        let [b1, b2, ...b3] = a;
+        console.log("%d %d", b1, b2);
+        console.log(b3);
+
+        // a,b 코드 교환
+        var a, b;
+        a = 5;
+        b = 6;
+        console.log(a, b);
+        var temp = a;
+        a = b;
+        b = temp;
+        console.log(a, b);
+
+        var a, b;
+        [a, b] = [5, 6];
+        console.log(a, b);
+        [a, b] = [b, a];
+        console.log(a, b);
+
+        // 배열값 교환하기
+        var a = [];
+        a[0] = 3;
+        a[1] = 4;
+        console.log(a);
+        var temp = a[0];
+        a[0] = a[1];
+        a[1] = temp;
+        console.log(a);
+        var a = [];
+
+        [a[0], a[1]] = [3, 4];
+        console.log(a);
+        [a[0], a[1]] = [a[1], a[0]];
+        console.log(a);
+
+        var i = 3, j = 4;
+        var a = [5, 6, 7]
+        var a1 = [i, j, a];
+        console.log(a1);
+        var a2 = [i, j, ...a];
+        console.log(a2);
+
+        // 연습문제
+        // 1. sort.js
+        // (1) 빈 배열을 만든다.
+        // (2) Math.random() 메소드를 사용하여, 1 이상 100 이하의 정수 난수를 100개 생성해서, 배열에 채운다.
+        // (3) 배열을 오름차순으로 정렬한다.
+        // (4) 배열을 출력한다.
+        let sarr = [];
+        for(var i=0; i<100; i++){
+            num = getRandomInt(1, 100);
+            sarr.push(num);
+        }
+        
+        document.write("랜덤넘버" + '<br>' )
+        for(var i=0; i<sarr.length; i++){
+            document.write(sarr[i]+ ', ');
+            if ((i+1)%10 == 0) {
+                document.write('<br>')
+            }
+        }
+        var s = sarr.sort((a, b)=>a-b);
+        document.write("오름차순 : " + s + "<br>")
+
+        document.write('<hr>')
+
+        // 두 수 사이에 랜덤값 가져오는 함수
+        function getRandomInt(min, max) {
+            // min = Math.ceil(min);
+            // max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min; //최댓값은 제외, 최솟값은 포함
+        }
+
+        // 2. even.js
+        // (1) 빈 배열을 만든다.
+        // (2) Math.random() 메소드를 사용하여, 1 이상 100 이하의 정수 난수를 100개 생성해서, 배열에 채운다.
+        // (3) 배열에 원소들 중에서 짝수(2의 배수)를 찾아서 모두 제거한다.
+        // (4) 배열을 출력한다.
+        let earr = [];
+        for(var i=0; i<100; i++){
+            num = getRandomInt(1, 101);
+            earr[i] = num;
+        }
+        document.write("랜덤넘버" + '<br>' )
+        for(var i=0; i<earr.length; i++){
+            document.write(earr[i]+ ', ');
+            if ((i+1)%10 == 0) {
+                document.write('<br>')
+            }
+        }
+        var e = earr.filter((a)=> {
+            return a%2 != 0; // 짝수 제거
+        });
+        document.write("짝수제거 : " + e + "<br>")
+        document.write('<hr>')
+    </script>
+</head>
+<body>
+
+<!-- 
+    ... 연산자의 이름은 spreading operator 이다.  -> 값만 가져옴
+    배열 객체의 toString 메소드는, 배열의 내부 값을 표현하는 string을 리턴한다.
+    구조분해할당
+-->
+</body>
+</html>

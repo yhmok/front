@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        $(function(){
+            $("#navi").css("border", "1px solid")
+                      .css("margin", "10px")
+                      .css("border-radius", "10px");
+            $("#navi>li").css({
+                padding:"5px",
+                margin: "5px",
+                listStyle: "none"
+            })
+            var style1 = {
+                "text-decoration" : "none",
+                color : "black",
+                fontSize: "20px"
+            }
+            var aTag = $("#navi>li>a")
+
+            aTag.css(style1)
+
+            let li = $("#navi>li")
+            li.mouseover(function(){
+                $(this).css("background", "pink")
+            });
+
+            li.on("mouseout", function(){
+                $(this).css("background", "white")
+            })
+
+            // find -> $("#nav a") navi아래 모든 a태그 찾는다.
+            $("#vavi").find('a').hover(function(){ //마우스 올렸을때 
+                // mouseenter
+
+            }, function() { // 마우스 나갔을떄
+                // mouseleave
+            }) 
+
+            li.first().css("font-weight", "bold")
+            li.last().css("font-weight", "bold")
+            li.eq(3).css("background", "tomato")
+            li.eq(4).children('a').css("color", "blue")
+            // li태그에 글자색은 적용이 안되고 a태그에 직접 넣어야 한다.
+
+            // li.html("안녕")
+            // li.text("하세요")
+            li.html(function(i, a) { // 매개변수 : 인덱스, html
+                return i + "-" + a + " <sapn>안녕<span>"
+            })
+
+            li.text(function(i, a) { // 매개변수 : 인덱스, html - 기존 태그의 텍스트에 추가
+                                     // 태그를 인식하지 않음
+                return i + "-" + a + " <sapn>안녕<span>"
+            })
+
+            // ★반복문
+            //  데이타를 바인딩 하기 위해서...자바스크립트의 forEach와 유사
+            li.each(function(i, a) {
+                $(this).html(i + " 메뉴 - ★ " + i)
+            })
+
+            $.each(li, function() {
+                $(this).css("background", "gold")
+            })
+        });
+
+        
+        
+    </script>
+</head>
+<body>
+    <h2>제이쿼리 문법 실습</h2>
+    <ul id="navi">
+        <li><a href="#">menu-1</a></li>
+        <li><a href="#">menu-2</a></li>
+        <li><a href="#">menu-3</a></li>
+        <li><a href="#">menu-4</a></li>
+        <li><a href="#">menu-5</a></li>
+        <li><a href="#">menu-6</a></li>
+        <li><a href="#">menu-7</a></li>
+    </ul>
+
+   <h3>정적인 문서</h3>
+   <script>
+    $("h3").click(function(){
+        $(this).css("background", "steelblue")
+    })
+    // 동적인 문서생성
+    // 기존에 없던 객체를 만듬
+    // 이벤트가 안걸림
+    $("<h3>welcome</h3>").appendTo('body')
+
+    // 동적인 문서에 이벤트를 연결하려면 이벤트 위임 - delegate
+    // 상위요소에 이벤트를 연결하고, 하위요소에 이벤트를 위임한다.
+    $(document).on("click", "h3", function() {
+        $(this).css("background", "skyblue")
+    })
+    // document에 클릭 이벤트를 걸고, 하위요소 h3애 이벤트를 위임한다.
+
+    var h4 = document.createElement('h4')
+    var text = document.createTextNode("안녕하세요")
+    h4.append(text)
+    document.body.append(h4)
+
+    // 표준이벤트
+    h4.addEventListener('click', function() {
+        this.style.background = 'red'
+    })
+    // 고전이벤트
+    h4.onclick = function() {
+        this.style.background = 'red'
+    }
+    
+    // 동일한 결과
+    // $("body").append($("<h3>welcome to</h3>"))
+    // $(<h3>welcome</h3>).appendTo('body')
+   </script>
+</body>
+</html>
+<!-- 
+    talend/post man
+        데이터 통합 ​​및 데이터 관리 솔루션
+    Rest API클라이언트 프로그램
+
+    자바스크립트 코드를 위에 넣어줄때
+        window.onload = function() {...}
+        window.addEventListener("DomContentLoaded", function() {...});
+    제이쿼리 코드를 위에 넣어줄떄
+        $(document).ready(function(){...})
+        $(function(){...})
+
+    선택자
+        .prev()
+        .next()
+        .chidren()
+        .find()
+        .eq()
+        .parent()
+        .first()
+        .last()
+        .sibling() 형제
+
+    자바스크립트
+        li.onmouseover = function(){}
+    제이쿼리
+        li.mouseover(function(){})
+
+    .html() - .innerHTML
+    .text() - textContent
+    .each() - forEach와 유사
+        $.each(배열, 함수)
+        $each(함수)
+    .append() - append
+    .appendTo
+
+    DOM문서객체
+
+    정적인 문서
+        - 하드코딩. 직접 입력한 DOM문서
+        - 이벤트
+        - $("h3") 문서객체 선택
+
+    동적인 문서
+        - 스크립트로 생성한 문서
+        - 이벤트
+        - 이벤트 위임. delegation
+        - 새로운 것을 생성해 내는것
+        - $("<h3></h3>") 문서객체 생성
+    
+ -->

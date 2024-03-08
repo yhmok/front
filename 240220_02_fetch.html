@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>fetch() 사용하기</h1>
+    <button onclick="GET()">데이터조회(GET)</button>
+    <div id="content"></div>
+    <script>  
+        function GET() {
+            var url = "https://jsonplaceholder.typicode.com/users";
+            fetch(url)
+            .then(response=>response.json())
+            .then(json=> {
+                console.log(json);
+                getData(json);
+            });
+        }
+
+        function getData(data) {
+            var str = "<table border='1'>";
+                str += "<tr><th>id</th><th>name</th><th>username</th><th>email</th></tr>"
+                data.forEach(el => {
+                    str += `<tr><td>${el.id}</td><td>${el.name}</td>`
+                    str += `<td>${el.username}</td><td>${el.email}</td></tr>`                 
+                });
+                str += '</table>'
+            content.innerHTML = str;    
+        }
+    </script>
+</body>
+</html>
+<!-- 
+    fetch().then().then()
+    fetch("https://jsonplaceholder.typicode.com/todos/1")
+         .then(response => request.response.json()) 응답데이터 추출
+         .then(json => console.log(json)) 데이터 처리
+    fetch는 Promise객체를 반환반다.
+    fetch().then().then().catch(err=>{})
+
+    CORS => cross-Origin Resource Sharing
+        교차로 출처 리소스 공유
+
+    async-await        
+ -->

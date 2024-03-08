@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num=100; //변수
+        var nums=[10, 20, 300, 40, 50]; //배열
+        // nums -> 참조변수(주소를 가르키고 있는 변수)
+        // 배열의 요소(10, 20,...등)
+        // 배열의 갸수 -> length
+        console.log(nums.length)
+
+        // index(인덱스) -> 0부터 시작
+        console.log(nums[2]);
+        console.log(nums.indexOf(300)); // 배열 nums에서 300의 index 2
+
+        // 1. 리터럴 방식
+        var animals = ['사자', '호랑이', '원숭이', '표범'];
+
+        // 2. 생성자 함수 사용하기
+        var food = new Array('김밥', '사과', '바나나', '불고기');
+
+        document.write(animals+"<br>");
+        document.write(food+"<br>");
+
+        // 배열 데이타를 읽어오기(화면에 뿌리기) - 반복문
+        // 객체에선 사용 불가능
+        for(var i=0; i<animals.length; i++){
+            document.write(i + " : " + animals[i] + " ")
+        }
+
+        // 향상된 for문 - 배열, 객체 모두 사용가능
+        for(var i in food) {
+            document.write(i + " : " + food[i] + " ")
+        }
+
+        // 배열만 사용 가능
+        for(var i of animals) {
+            document.write(i + "<br> "); // 인덱스 사용 못함.
+        }
+
+        // 배열 api사용 - forEach
+        food.forEach(function(a, i) {
+           document.write(`${i+1} : ${a}<br>`);
+        });
+
+        document.write('<hr>');
+        // 위와 동일 -> 화살표 함수
+        food.forEach((a,i)=>{
+           document.write(`${i+1} : ${a}<br>`);
+        });
+
+        var arr = animals.concat(food);
+        console.log(arr)
+
+        var arr1 = arr.slice(3) // index 3부터 추출
+        console.log(arr1)
+
+        var arr2 = arr.slice(3, 6) // index 3, 4, 5 추출
+        console.log(arr2)
+
+        var arr3 = arr.toString(); // 문자열러 치환, 원본은 그대로
+        console.log(arr3)
+        console.log(arr)
+
+        var arr5 = food.join('&') // url에 쿼리스트링과 관련
+        console.log(arr5)
+
+        var animal = ['사자', '호랑이', '원숭이', '표범', '코알라'];
+        var arr6 = animal.slice(1, 2, "기린", "고릴라");// 변경
+        console.log(arr6)
+        console.log(animal)
+
+        var arr7 = animal.splice(2); //인덱스 2부터 삭제
+        console.log(arr7)
+        console.log(animal);
+
+        var food = new Array('김밥', '사과', '바나나', '불고기');
+        var arr9 = food.push("짜장면");
+        console.log(arr9 + '<br>'); // 갯수 리턴
+        console.log(food + '<br>');
+
+        var arr10 = food.pop();
+        console.log(arr10); // 짜장면 리턴
+        console.log(food);
+
+        var arr11 = food.unshift('짬뽕');
+        console.log(arr11); // 맨앞에 짬뽕 추가
+        console.log(food);
+
+        var arr12 = food.shift();
+        console.log(arr12); // 맨앞에 짬뽕 삭제
+        console.log(food);
+
+        // 문자 오름차순 정렬
+        var arr13 = food.sort();
+        console.log("1" + arr13); // 정렬 - 오름차순(default)
+ 
+        // 문자 오름차순 정렬한 값을 reverse하면 내림차순이됨
+        var arr13_1 = arr13.reverse();
+        console.log("1" + arr13_1); // 정렬 - 내림차순
+ 
+        var food=['오렌지', '귤', '포도', '백반']
+        var arr14 = food.reverse();
+        console.log("2:"+arr14); // 원본 배열을 역순으로 정렬
+        console.log(food);
+
+        var num = [10, 40, 30, 123, 250, 70]
+        // 숫자 오름차순 정렬
+        var arr15 = num.sort((a, b)=>a-b);
+        console.log("올림sort : "+arr15);
+
+        // 숫자 내림차순 정렬
+        var arr15 = num.sort((a, b)=>b-a);
+        console.log("내림sort : "+arr15); // 원본 배열을 역순으로 정렬
+
+        var a = animals.includes('사자');
+        console.log(a)
+
+        var animal = ['사자', '호랑이', '원숭이', '사표범', '코알라'];
+        var b = animal.find((item)=> {
+            return item == '표범' // undefined
+        });
+        console.log("find:"+b)
+
+        var b = animal.findIndex((item)=> {
+            return item == '호랑이' // undefined
+        });
+        console.log("find:"+b)
+
+        var food = ['김밥', '사과', '바나나', '불고기'];
+        var c = food.filter((a)=> {
+            return a === '김밥';
+        });
+        console.log("filter:"+c)
+
+        var c = food.filter((a)=> {
+            return a != '김밥'; // 김밥만 삭제 -> item에 김밥이 아닌것만 반환
+        });
+        console.log("filter:"+c)
+
+        var num = [10, 40, 30, 123, 250, 70]
+        var d = num.map(function(a, i) {
+            return a*3;
+        });
+        console.log("map:"+ d)
+
+        var num = [10, 40, 30, 123, 250, 70]
+        var d = num.map(function(a, i) {
+            return a+500; // 옵션추가
+        });
+        console.log("map:"+ d)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
+
+ <!-- 
+자바스크립트 참조사이트
+    www.w3school.com
+    모던자바스크립트-튜토리얼
+    ttps://developer.mozilla.org  
+
+배열을 생성하기
+1. 리터럴 방식
+    literal
+2. 생성자 함수로 생성하기
+    new Array() -> Array객체 사용하기
+
+배열 읽어오기
+    - 반복문
+배열의 요소를 변경
+배열과 관련된 API    
+    - concat
+    - ★slice -> 추출
+        arr.slice([begin[, end]])
+        ([]) -> 대괄호는 옵션
+        arr.slice()
+        arr.slice(3)
+        arr.slice(3, 6)
+    - toString -> 문자열로 치환
+    - join -> 결합
+    - ★splice
+        splice(start [,삭제개수] )
+        원본이 변경된다.
+    - push 맨뒤에서 추거하기
+    - pop 맨뒤에서 삭제하기
+    - unshift 맨앞에서 추가하기
+    - shift 맨 앞에서 삭제하기
+    - sort
+        sort로 내림차순/오름차순으로 정렬하기
+        compareFunction -> 숫자 오름/내림차순 정렬시 필요
+    - reverse
+
+    - ★forEach
+    - indexOf
+    - lastIndexOf
+    - include
+
+    매개변수로 함수를 받는다.
+    - ★find
+    - ★findIndex
+    - ★filter 삭제, 검색
+    - ★map 조건을 가지고 새로운 배열을 생성한다.
+-->
